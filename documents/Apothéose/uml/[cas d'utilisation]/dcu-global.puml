@@ -1,90 +1,77 @@
-"@startuml oumama"
+@startuml GreenRoots
+
 left to right direction
-actor "Visiteur" as V
-actor "Membre" as M
-actor "Admin" as A
 
-M --|> V
+actor Visiteur
+actor Membre
+actor Admin
 
-rectangle "GreenRoots" {
-  (Consulter accueil) as accueil
-  (S'inscrire) as inscrire
-  (Se connecter) as login
-  (Consulter à propos) as apropos
-  (Consulter contact) as contact
-  (Consulter mentions légales) as mentions
-  (Consulter catalogue) as catalogue
-  (Rechercher/filtrer produit) as recherche
-  (Voir détail produit) as detail
-  (Ajouter produit au panier) as panier
-  (Voir panier) as voirpanier
-  (Acheter produit) as acheter
+Visiteur --|> Membre
+Membre --|> Admin
 
-  V --> accueil
-  V --> inscrire
-  V --> login
-  V --> apropos
-  V --> contact
-  V --> mentions
-  V --> catalogue
-  V --> recherche
-  V --> detail
-  V --> panier
-  V --> voirpanier
-  V --> acheter
+rectangle "GreenRoots - Cas d'utilisation" {
 
-  (Procéder au paiement) as paiement
-  (Recevoir confirmation commande) as confirmation
-  (Suivre commande) as suivi
-  (Voir historique achats) as historique
-  (Annuler commande) as annuler
-  (Modifier mes infos perso) as infos
-  (Supprimer mon compte) as supcompte
-  (Me déconnecter) as logout
-  (Voir géolocalisation plantation) as geoloc
-  (Voir photo plantation) as photo
+  ' --- Admin ---
+  usecase "Gérer produits (CRUD)" as UC22
+  usecase "Gérer utilisateurs" as UC23
+  usecase "Gérer commandes" as UC24
+  usecase "Tableau de bord (hors MVP)"  as UC25
 
-  M --> paiement
-  M --> confirmation
-  M --> suivi
-  M --> historique
-  M --> annuler
-  M --> infos
-  M --> supcompte
-  M --> logout
-  M --> geoloc
-  M --> photo
+  ' --- Membre ---
+  usecase "Procéder au paiement" as UC12
+  usecase "Recevoir confirmation commande" as UC13
+  usecase "Suivre commande" as UC14
+  usecase "Voir historique commandes" as UC15
+  usecase "Annuler une commande (hors MVP)" as UC16
+  usecase "Modifier mes infos perso" as UC17
+  usecase "Supprimer mon compte" as UC18
+  usecase "Me déconnecter" as UC19
+  usecase "Voir géolocalisation plantation (hors MVP)" as UC20
+  usecase "Voir photo plantation (hors MVP)" as UC21
 
-  (Consulter liste produits) as lproduits
-  (Ajouter produit) as ajoutprod
-  (Modifier produit) as modifprod
-  (Supprimer produit) as supprod
-  (Consulter liste utilisateurs) as lusers
-  (Supprimer utilisateur) as supuser
-  (Consulter commandes) as lcmd
-  (Rechercher commande) as rechcmd
-  (Modifier commande) as modifcmd
-  (Supprimer commande) as supcmd
-  (Tableau de bord) as dashboard
-
-  A --> lproduits
-  A --> ajoutprod
-  A --> modifprod
-  A --> supprod
-  A --> lusers
-  A --> supuser
-  A --> lcmd
-  A --> rechcmd
-  A --> modifcmd
-  A --> supcmd
-  A --> dashboard
+  ' --- Visiteur ---
+  usecase "Accéder à l'accueil" as UC1
+  usecase "Créer un compte" as UC2
+  usecase "Se connecter" as UC3
+  usecase "Consulter à propos" as UC4
+  usecase "Consulter contact" as UC5
+  usecase "Consulter mentions légales" as UC6
+  usecase "Voir catalogue produits" as UC7
+  usecase "Rechercher/filtrer produits" as UC8
+  usecase "Voir détail produit" as UC9
+  usecase "Ajouter produit au panier" as UC10
+  usecase "Voir panier" as UC11
 }
 
-acheter --> login : <<include>>
-paiement --> login : <<include>>
-paiement --> panier : <<include>>
+' Liens Admin
+Admin --> UC22
+Admin --> UC23
+Admin --> UC24
+Admin -[#red]-> UC25
 
-geoloc -[#red]-> M : <<hors MVP>>
-photo -[#red]-> M : <<hors MVP>>
-dashboard -[#red]-> A : <<hors MVP>>
+' Liens Membre
+Membre --> UC12
+Membre --> UC13
+Membre --> UC14
+Membre --> UC15
+Membre -[#red]-> UC16
+Membre --> UC17
+Membre --> UC18
+Membre --> UC19
+Membre -[#red]-> UC20
+Membre -[#red]-> UC21
+
+' Liens Visiteur
+Visiteur --> UC1
+Visiteur --> UC2
+Visiteur --> UC3
+Visiteur --> UC4
+Visiteur --> UC5
+Visiteur --> UC6
+Visiteur --> UC7
+Visiteur --> UC8
+Visiteur --> UC9
+Visiteur --> UC10
+Visiteur --> UC11
+
 @enduml
