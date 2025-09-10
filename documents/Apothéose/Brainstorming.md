@@ -4,7 +4,7 @@
 
 ### Outils
 
-- carte interactive : https://leafletjs.com/
+- carte interactive : https://leafletjs.com/ ou https://www.mapbox.com/
 - palettes de couleurs : https://colorhunt.co/
 - exemple de templates : https://dribbble.com/
 - outil de maquettage : https://www.figma.com/design/mytgwat5YvBouavvztXiTj/GreenRoots?node-id=0-1&p=f&t=nQc5KCW9oGEsgQCj-0
