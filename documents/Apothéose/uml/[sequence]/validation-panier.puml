@@ -1,0 +1,30 @@
+@startuml CommandeMVPStock
+
+actor Membre
+participant SPA
+participant API
+database BDD
+
+== VALIDATION COMMANDE AVEC STOCK ==
+
+Membre -> SPA : Clique sur "Valider la commande"
+SPA -> API : POST /api/commandes
+
+API -> BDD : Vérifie disponibilité du stock pour chaque produit
+BDD --> API : Stock disponible / insuffisant
+
+alt Stock disponible
+    API -> BDD : POST /commandes Crée la commande (user_id, produits, total, status=payé)
+    BDD --> API : Commande créée avec ID
+
+    API -> BDD : Met à jour le stock (décrémentation des quantités)
+    BDD --> API : Stock mis à jour
+
+    API --> SPA : 200 OK + détails commande
+    SPA --> Membre : Affiche confirmation + numéro de commande
+else Stock insuffisant
+    API --> SPA : 400 Bad Request + message "Produit indisponible"
+    SPA --> Membre : Affiche erreur
+end
+
+@enduml

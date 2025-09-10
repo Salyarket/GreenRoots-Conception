@@ -1,15 +1,37 @@
 ### MVP :
-- Besoins Fonctionnels (Minimum Viable Product - MVP).
-- Landing page avec la présentation de GreenRoots et certains arbres à planter.
-- Système d'inscription et de connexion.
-- Avoir la possibilité (en tant que GreenRoots) de gérer les arbres à proposer : création, édition, suppression, etc.
-- Pouvoir consulter les détails d’un arbre disponible à l’achat.
-- Pouvoir acheter un arbre (avec un faux tunnel d’achat pour le MVP).
-- Pouvoir suivre ses commandes passées en tant qu’utilisateur.
-- Avoir un sytème de logs (hors MVP)
-- Test unitaires et/ou fonctionnels (hors MVP)
+
+(Pour un MVP, l’idée clé est d’aller à l’essentiel : proposer juste les fonctionnalités qui permettent de tester l’usage principal de l’application et de valider l’idée.)
+
+1. Présentation de l’entreprise :
+
+   - Landing page avec quelques arbres mis en avant.
+
+2. Gestion utilisateurs :
+
+   - S’inscrire et se connecter.
+
+3. Catalogue et produits
+
+   - Consulter tous les arbres disponibles.
+   - Voir le détail d’un arbre.
+
+4. Panier et commande
+
+   - Ajouter un arbre au panier.
+   - “Acheter” un arbre avec tunnel fictif.
+   - Suivi des commandes (simplement lister les commandes passées).
+
+5. Back-office pour l’admin
+
+   - CRUD sur les arbres (ajouter, modifier, supprimer).
+
+6. BONUS HORS MVP MAIS ON VEUT MVP
+   - Avoir un sytème de logs (hors MVP - bonus)
+   - Test unitaires et/ou fonctionnels (hors MVP - bonus)
+   - Une recherche ou un filtre des arbres (hors MVP - bonus)
 
 ### Propositions d’évolutions possibles
+
 - Pouvoir suivre l’évolution des arbres que l’on a achetés : lieu, croissance, photos potentielles, etc.
 - Système de suivi interactif : carte interactive pour visualiser les lieux exacts de plantation des arbres achetés.
 - Back-office pour l'administration, la gestion des profils utilisateurs, le suivi des arbres, etc.
@@ -20,6 +42,7 @@
 - Système de notifications : avertir les utilisateurs d’événements significatifs (plantation réussie, anniversaire d’un arbre, campagnes spéciales, etc.).
 - Intégration d'une API pour le paiement sécurisé, comme [Stripe](https://stripe.com/fr).
 - Support multilingue : au moins anglais et français.
+- M'avertir en cas de retour en stock d'un produit.
 
 # Présentation du projet :
 
