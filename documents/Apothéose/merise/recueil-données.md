@@ -16,7 +16,7 @@ La méthode **MERISE** permet d'analyser, modéliser et concevoir un système d'
 - nom de l'utilisateur
 - email de l'utilisateur
 - mot de passe de l'utilisateur
-- statut : particulier ||association || entreprise
+- statut : particulier || association || entreprise
 - rôle de l'utilisateur : admin || membre
 
 ## Produit
@@ -27,7 +27,13 @@ La méthode **MERISE** permet d'analyser, modéliser et concevoir un système d'
 - image (URL)
 - Disponibilité (true / false)
 - stock (quantité disponible)
-- Lieu de plantation (Afrique, Europe, Asie…)
+
+## Terrain de plantation
+
+- nom
+- point gps
+- Lieu de plantation possible de l'arbre : (continent Europe, Asie…)
+- Lieu de plantantion COORDONNEES GPS ? PLUSIEURS TERRAINS ?
 
 ---------- BONUS ------------
 
@@ -45,4 +51,4 @@ La méthode **MERISE** permet d'analyser, modéliser et concevoir un système d'
 
 ---------- BONUS ------------
 
-- facture pdf
+- facture pdf (envoie auto?????)
