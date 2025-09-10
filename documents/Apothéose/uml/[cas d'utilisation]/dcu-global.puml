@@ -1,0 +1,90 @@
+"@startuml oumama"
+left to right direction
+actor "Visiteur" as V
+actor "Membre" as M
+actor "Admin" as A
+
+M --|> V
+
+rectangle "GreenRoots" {
+  (Consulter accueil) as accueil
+  (S'inscrire) as inscrire
+  (Se connecter) as login
+  (Consulter à propos) as apropos
+  (Consulter contact) as contact
+  (Consulter mentions légales) as mentions
+  (Consulter catalogue) as catalogue
+  (Rechercher/filtrer produit) as recherche
+  (Voir détail produit) as detail
+  (Ajouter produit au panier) as panier
+  (Voir panier) as voirpanier
+  (Acheter produit) as acheter
+
+  V --> accueil
+  V --> inscrire
+  V --> login
+  V --> apropos
+  V --> contact
+  V --> mentions
+  V --> catalogue
+  V --> recherche
+  V --> detail
+  V --> panier
+  V --> voirpanier
+  V --> acheter
+
+  (Procéder au paiement) as paiement
+  (Recevoir confirmation commande) as confirmation
+  (Suivre commande) as suivi
+  (Voir historique achats) as historique
+  (Annuler commande) as annuler
+  (Modifier mes infos perso) as infos
+  (Supprimer mon compte) as supcompte
+  (Me déconnecter) as logout
+  (Voir géolocalisation plantation) as geoloc
+  (Voir photo plantation) as photo
+
+  M --> paiement
+  M --> confirmation
+  M --> suivi
+  M --> historique
+  M --> annuler
+  M --> infos
+  M --> supcompte
+  M --> logout
+  M --> geoloc
+  M --> photo
+
+  (Consulter liste produits) as lproduits
+  (Ajouter produit) as ajoutprod
+  (Modifier produit) as modifprod
+  (Supprimer produit) as supprod
+  (Consulter liste utilisateurs) as lusers
+  (Supprimer utilisateur) as supuser
+  (Consulter commandes) as lcmd
+  (Rechercher commande) as rechcmd
+  (Modifier commande) as modifcmd
+  (Supprimer commande) as supcmd
+  (Tableau de bord) as dashboard
+
+  A --> lproduits
+  A --> ajoutprod
+  A --> modifprod
+  A --> supprod
+  A --> lusers
+  A --> supuser
+  A --> lcmd
+  A --> rechcmd
+  A --> modifcmd
+  A --> supcmd
+  A --> dashboard
+}
+
+acheter --> login : <<include>>
+paiement --> login : <<include>>
+paiement --> panier : <<include>>
+
+geoloc -[#red]-> M : <<hors MVP>>
+photo -[#red]-> M : <<hors MVP>>
+dashboard -[#red]-> A : <<hors MVP>>
+@enduml

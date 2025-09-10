@@ -1,6 +1,6 @@
 # Résumé des diagrammes UML
 
-## 1. Diagramme de cas d'utilisation (Use Case)
+## 1. Diagramme de cas d'utilisation (Use Case)   >>>>>>>> DEMANDÉ IMPÉRATIF <<<<<<<<<
 - **À quoi ça sert** : Montrer les fonctionnalités principales vues par un utilisateur.
 - **Exemple** : Visualiser les interactions entre un client et un site e-commerce (s'inscrire, ajouter au panier, payer).
 
@@ -8,11 +8,11 @@
 - **À quoi ça sert** : Représenter les structures des objets (attributs, relations, héritages...).
 - **Exemple** : Modéliser une application de bibliothèque (Livre, Auteur, Utilisateur).
 
-## 3. Diagramme de séquence
+## 3. Diagramme de séquence >>>>>>>> DEMANDÉ IMPÉRATIF <<<<<<<<<
 - **À quoi ça sert** : Montrer comment les composants d'un système interagissent dans le temps (appel de méthodes, de endpoints).
 - **Exemple** : Décrire la procédure de connexion d’un utilisateur à un site.
 
-## 4. Diagramme d'activités
+## 4. Diagramme d'activités    >>>>>>>>DEMANDÉ EN BONUS<<<<<<<<<
 - **À quoi ça sert** : Décrire les étapes d'un processus (logique de flux ou de tâches).
 - **Exemple** : Illustrer le processus de validation d’une commande. Illustrer le workflow d'un déploiement.
 
@@ -20,7 +20,7 @@
 - **À quoi ça sert** : Montrer les différents états d’un objet et comment il change d’état.
 - **Exemple** : Suivre les états d’une commande (en attente → validée → expédiée → livrée). Expliquer le fonctionnement d'un composant frontend à état.
 
-## 6. Diagramme de composants
+## 6. Diagramme de composants      >>>>>>>>DEMANDÉ EN BONUS<<<<<<<<<
 - **À quoi ça sert** : Représenter l’architecture logicielle en modules / composants.
 - **Exemple** : Visualiser les dépendances entre les services d’une application microservices.
 
