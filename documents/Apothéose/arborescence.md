@@ -5,6 +5,7 @@ Pages visiteurs
     - Page produits
         - Page panier
         - Page paiement
+    - Page Produit (produit spécifique)
     - Page contact
     - Page connexion
     - Page inscription 
@@ -23,4 +24,3 @@ Pages Administrations
     - Page Profil maybe : infos personnels, possibilité de se désincrire            - client GreenRoots
     - Page CRUD Produit                                                             - admin GrenRoots voir assos partenaires (CRUD mais que de ses produits)
     - Page gestion des utilisateurs (CRUD)                                          - admin GrenRoots
-    - Page 
