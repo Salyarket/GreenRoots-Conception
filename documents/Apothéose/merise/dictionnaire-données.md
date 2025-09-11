@@ -23,7 +23,7 @@
 | `image_url`   | TEXT[]         | ❌     | ✅       | -            | -          | ["https://cdn/trees/oak.png", "https://cdn/trees/oak.png"] | URL d’image du produit                  |
 | `available`   | BOOLEAN        | ❌     | ✅       | -            | true       | true                                                       | Disponibilité (actif / désactivé)       |
 | `stock`       | INT            | ❌     | ✅       | -            | 0          | 120                                                        | Quantité disponible                     |
-| `location_id` | INT            | ❌     | ❌       | location(id) | NULL       | 5                                                          | Référence vers un terrain de plantation |
+
 
 ## Location
 
@@ -59,6 +59,8 @@
 | ------------- | ---- | ------ | -------- | ------------ | ---------- | ----------------- | --------------------------------------------- |
 | `product_id`  | INT  | ❌     | ✅       | product(id)  | -          | 101               | Référence vers un produit (arbre)             |
 | `location_id` | INT  | ❌     | ✅       | location(id) | -          | 5                 | Référence vers un lieu de plantation possible |
+
+**Clé primaire composée** : (`product_id`, `location_id`)
 
 ## Log
 

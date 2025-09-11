@@ -158,3 +158,4 @@ Hébergement cloud (Vercel pour le front, Railway/Render/Docker pour l’API et 
 ## 9 SECURITE A LIRE SOUVENT
 
 - faire controle tableau images car pas de max images en BDD (controler en front avant le create / update de l'admin) et en backend via le controlleur avant envoie BDD
+- revoir RGBD suppression de données Database et voir si compte utilisateur supprimé si commande supprimé ou set nul ? commande orpheline VOIR CREATE_TABLE.SQL DELETE ON CASCADE OR SET NULL
