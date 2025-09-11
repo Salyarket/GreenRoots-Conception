@@ -153,4 +153,8 @@ Hébergement cloud (Vercel pour le front, Railway/Render/Docker pour l’API et 
 - Mauvaise répartition des rôles dans l’équipe
 - Difficultés de communication interne
 - Départ ou indisponibilité d’un membre clé
-- mort subite du nouveau née 
+- mort subite du nouveau née
+
+## 9 SECURITE A LIRE SOUVENT
+
+- faire controle tableau images car pas de max images en BDD (controler en front avant le create / update de l'admin) et en backend via le controlleur avant envoie BDD
