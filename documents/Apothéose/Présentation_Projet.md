@@ -22,13 +22,20 @@
    - Suivi des commandes (simplement lister les commandes passées).
 
 5. Back-office pour l’admin
-
+   + gestion utilisateurs ? ****
    - CRUD sur les arbres (ajouter, modifier, supprimer).
 
-6. BONUS HORS MVP MAIS ON VEUT MVP
-   - Avoir un sytème de logs (hors MVP - bonus)
-   - Test unitaires et/ou fonctionnels (hors MVP - bonus)
-   - Une recherche ou un filtre des arbres (hors MVP - bonus)
+6. Techniques pas fonctionnels (partie à déplacer car pas MVP)
+   AJOUTER SIDE DOCUMENT TECHNIQUE ? Cahier technique que pour l'équipe
+
+- Test unitaires et/ou fonctionnels
+
+(revoir CP comp pro , présentation slides)
+
+BONUS HORS MVP MAIS ON VEUT MVP
+
+- Avoir un sytème de logs (hors MVP - bonus)
+- Une recherche ou un filtre des arbres (hors MVP - bonus)
 
 ### Propositions d’évolutions possibles
 

@@ -2,7 +2,7 @@
 
 On décide du SGBDR a utiliser et on précise le reste des contraites.
 
-Choix du SGBD = Postgres
+Choix du SGBD = PostgreSQL
 
 ## Pour toutes les tables 
 

@@ -10,7 +10,7 @@ La méthode **MERISE** permet d'analyser, modéliser et concevoir un système d'
 
 # Recueil de données
 
-## Utilisateur
+## User
 
 - prénom de l'utilisateur
 - nom de l'utilisateur
@@ -19,7 +19,7 @@ La méthode **MERISE** permet d'analyser, modéliser et concevoir un système d'
 - statut : particulier || association || entreprise
 - rôle de l'utilisateur : admin || membre
 
-## Produit
+## Product
 
 - nom
 - prix
@@ -28,27 +28,32 @@ La méthode **MERISE** permet d'analyser, modéliser et concevoir un système d'
 - Disponibilité (true / false)
 - stock (quantité disponible)
 
-## Terrain de plantation
+  ---------- BONUS ------------
 
-- nom
-- point gps
 - Lieu de plantation possible de l'arbre : (continent Europe, Asie…)
-- Lieu de plantantion COORDONNEES GPS ? PLUSIEURS TERRAINS ?
-
----------- BONUS ------------
-
 - vitesse de croissance (lente, moyenne, rapide)
 - taille (petit / moyen / grand)
 - type d’arbre (ex : cactus, fougère, conifère, fruitier…)
 
-## Commande
+## Planting_Area
+
+- nom
+- point gps
+
+## Order
 
 - date de la commande
 - état de la commande
-- prix de la commande
-- produits
+- prix total de la commande
+- liste des produits
 - utilisateur qui a passé la commande
 
 ---------- BONUS ------------
 
 - facture pdf (envoie auto?????)
+
+## Log
+
+- level (info / warn / error / debug)
+- message (détails du log)
+- jsonb (nullable) => détails techniques (stracktrace, payload)
