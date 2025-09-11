@@ -10,7 +10,7 @@ La méthode **MERISE** permet d'analyser, modéliser et concevoir un système d'
 
 # Recueil de données
 
-## User
+## Utilisateur
 
 - prénom de l'utilisateur
 - nom de l'utilisateur
@@ -19,7 +19,7 @@ La méthode **MERISE** permet d'analyser, modéliser et concevoir un système d'
 - statut : particulier || association || entreprise
 - rôle de l'utilisateur : admin || membre
 
-## Product
+## Produit
 
 - nom
 - prix
@@ -35,12 +35,12 @@ La méthode **MERISE** permet d'analyser, modéliser et concevoir un système d'
 - taille (petit / moyen / grand)
 - type d’arbre (ex : cactus, fougère, conifère, fruitier…)
 
-## Planting_Area
+## Lieu de plantation
 
 - nom
 - point gps
 
-## Order
+## Commande
 
 - date de la commande
 - état de la commande

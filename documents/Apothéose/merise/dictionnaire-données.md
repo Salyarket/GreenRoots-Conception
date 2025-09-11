@@ -55,11 +55,10 @@
 
 ## Product_location
 
-| Champ         | Type      | Unique | Not null | Référence    | Par défaut | Exemple de valeur | Explication                                   |
-| ------------- | --------- | ------ | -------- | ------------ | ---------- | ----------------- | --------------------------------------------- |
-| `id`          | GENERATED | ✅     | ✅       | -            | -          | 3001              | Identifiant unique de la relation             |
-| `product_id`  | INT       | ❌     | ✅       | product(id)  | -          | 101               | Référence vers un produit (arbre)             |
-| `location_id` | INT       | ❌     | ✅       | location(id) | -          | 5                 | Référence vers un lieu de plantation possible |
+| Champ         | Type | Unique | Not null | Référence    | Par défaut | Exemple de valeur | Explication                                   |
+| ------------- | ---- | ------ | -------- | ------------ | ---------- | ----------------- | --------------------------------------------- |
+| `product_id`  | INT  | ❌     | ✅       | product(id)  | -          | 101               | Référence vers un produit (arbre)             |
+| `location_id` | INT  | ❌     | ✅       | location(id) | -          | 5                 | Référence vers un lieu de plantation possible |
 
 ## Log
 
