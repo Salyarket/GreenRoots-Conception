@@ -15,19 +15,15 @@ rectangle "GreenRoots - Cas d'utilisation" {
   usecase "Gérer produits (CRUD)" as UC22
   usecase "Gérer utilisateurs" as UC23
   usecase "Gérer commandes" as UC24
-  usecase "Tableau de bord (hors MVP)"  as UC25
 
   ' --- Membre ---
   usecase "Procéder au paiement" as UC12
   usecase "Recevoir confirmation commande" as UC13
   usecase "Suivre commande" as UC14
   usecase "Voir historique commandes" as UC15
-  usecase "Annuler une commande (hors MVP)" as UC16
   usecase "Modifier mes infos perso" as UC17
   usecase "Supprimer mon compte" as UC18
   usecase "Me déconnecter" as UC19
-  usecase "Voir géolocalisation plantation (hors MVP)" as UC20
-  usecase "Voir photo plantation (hors MVP)" as UC21
 
   ' --- Visiteur ---
   usecase "Accéder à l'accueil" as UC1
@@ -47,19 +43,15 @@ rectangle "GreenRoots - Cas d'utilisation" {
 Admin --> UC22
 Admin --> UC23
 Admin --> UC24
-Admin -[#red]-> UC25
 
 ' Liens Membre
 Membre --> UC12
 Membre --> UC13
 Membre --> UC14
 Membre --> UC15
-Membre -[#red]-> UC16
 Membre --> UC17
 Membre --> UC18
 Membre --> UC19
-Membre -[#red]-> UC20
-Membre -[#red]-> UC21
 
 ' Liens Visiteur
 Visiteur --> UC1
