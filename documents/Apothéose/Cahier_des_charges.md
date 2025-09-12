@@ -84,28 +84,63 @@ Gestion des utilisateurs
 
 ---
 
-## 5 Contraintes techniques + Choix technologiques **\*\*\***JUSTIFIER LA PERTINENCE ET LE CHOIX\***\*\*\*\*\*\*\***
+## 5 CONTRAINTES TECHNIQUES + CHOIX TECHNOLOGIQUES
+
+- SP 0 : Le choix et la justification de l'architecture du projet (front, back, BDD)
 
 **5.1 Frontend**
--Next.js (SSR pour SEO et performance).
--React pour les composants interactifs.
--Tailwind CSS (ou MUI) pour le style.
+
+- Next.js : choisi pour sa capacité à faire du Server-Side Rendering (SSR) et du Static Site Generation (SSG), ce qui améliore le SEO (important pour être visible avec notre catalogue de produits) et les performances. C’est un standard moderne largement utilisé dans l’écosystème React.
+
+- React : framework de composants réutilisables et dynamiques, il permet de développer une interface utilisateur fluide et interactive. C’est ce que nous avons appris à l’école, ce qui garantit une bonne maîtrise.
+
+- TypeScript : améliore la robustesse du code en ajoutant du typage statique, ce qui réduit les erreurs en production et facilite la maintenance.
+
+- Tailwind CSS : choisi pour gagner du temps sur le design responsive avec des classes utilitaires, tout en gardant la possibilité de personnaliser la charte graphique.
+
+=============================> Justification pédagogique : Ce sont les technologies modernes que nous avons vues à l’école, donc nous pouvons les appliquer concrètement dans ce projet tout en respectant les standards de l’industrie.
 
 **5.2 Backend**
-Express.js (API REST).
-TypeScript pour la robustesse.
-Prisma ORM avec PostgreSQL.
-Swagger pour la documentation de l’API.
-Winston (ou équivalent) pour les logs.
+
+- Express.js : framework Node.js léger, flexible et facile à utiliser, qui permet de créer rapidement une API REST. C’est un choix pédagogique car c’est celui qui a été enseigné.
+
+- TypeScript : même justification que côté front : fiabilité, réduction des bugs, meilleure lisibilité du code.
+
+- Prisma ORM : simplifie les interactions avec la base de données PostgreSQL grâce à un mapping objet-relationnel clair et un générateur de types automatiques (sécurité supplémentaire au niveau du code et bonne synergie avec TypeScript ).
+
+- Swagger : documentation automatique de l’API pour faciliter les tests et la communication entre développeurs.
+
+- Winston : gestion centralisée des logs (erreurs, événements importants, monitoring) → bon pour le suivi et le débogage en production.
+
+=============================> Justification pédagogique : Nous avons appris Express et Prisma en cours, ce qui garantit que nous savons les utiliser. C’est aussi un choix cohérent avec la stack full JS/TS.
 
 **5.3 Base de données**
-PostgreSQL
-Modélisation MERISE → passage en modèle relationnel.
+
+- PostgreSQL : SGBD relationnel robuste, open source, adapté aux projets qui demandent de la cohérence et de l’intégrité des données (contraintes, clés étrangères).
+
+- Méthodologie MERISE : permet de structurer la base en passant par MCD → MLD → MPD.
+
+- Passage en modèle relationnel : cohérent avec PostgreSQL et facilite l’évolution du schéma.
+
+=============================> Justification pédagogique : PostgreSQL est le SGBD étudié en cours et utilisé dans de nombreux projets réels. MERISE fait partie des méthodes enseignées et permet de justifier un vrai processus de conception.
 
 **5.4 Autres contraintes**
-Authentification via JWT.
-Respect RGPD (gestion des données personnelles) + ACCESSIBILITE RGAA.
-Hébergement cloud (Vercel pour le front, Railway/Render/Docker pour l’API et la BDD).
+
+- Sécurité : respect des bonnes pratiques OWASP TOP 10 (prévention contre injections SQL, XSS, CSRF, etc.).
+
+- Authentification : via JWT + gestion des rôles (admin/member) pour sécuriser l’accès.
+
+- RGPD : protection des données personnelles (ex. anonymisation si un compte est supprimé, choix du consentement).
+
+- Accessibilité (RGAA) : garantir que l’application soit utilisable par tous (contraste, navigation clavier, aria-labels, etc.).
+
+- Hébergement Cloud :
+
+  - Vercel pour le frontend → intégré nativement avec Next.js.
+
+  - Docker pour backend + BDD → simplicité de déploiement, scalabilité, gratuit ou peu coûteux pour un projet pédagogique.
+
+=============================> Justification pédagogique : Ces contraintes sont inspirées à la fois des cours et des standards professionnels. Même si le projet reste scolaire, cela nous entraîne à respecter des normes réelles de développement web.
 
 ---
 
@@ -132,7 +167,7 @@ SPRINT 0 https://github.com/O-clock-Athenes/Projects-CDA/blob/main/.github/ISSUE
 - Les navigateurs compatibles (ECOSIA FRIENDLY ? )
 - L'arborescence de l'application (le chemin de l'utilisateur, correspondra aux routes front)
 - La liste des routes prévues (les routes front sont couvertes par l'arborescence en toute logique, restent les endpoints de votre API)
-- La liste des rôles de chacun
+
 - Wireframes
 - Maquettes
 - Charte graphique
@@ -180,7 +215,14 @@ SPRINT 0 https://github.com/O-clock-Athenes/Projects-CDA/blob/main/.github/ISSUE
 - Départ ou indisponibilité d’un membre clé
 - mort subite du nouveau née
 
-## 9 SECURITE A LIRE SOUVENT
+## 9 LISTE DES RÔLES DE CHACUN
+
+- Oumaïma : Product Owner : tranche sur les questions de produit
+- Saliha : Scrum Master : transhe sur les questions d'organisation
+- Adrien : Lead Devs : tranche sur les question techniques
+- Tarig : Lead Devs : tranche sur les question techniques
+
+## 10 SECURITE A LIRE SOUVENT
 
 - faire controle tableau images car pas de max images en BDD (controler en front avant le create / update de l'admin) et en backend via le controlleur avant envoie BDD
 - revoir RGBD suppression de données Database et voir si compte utilisateur supprimé si commande supprimé ou set nul ? commande orpheline VOIR CREATE_TABLE.SQL DELETE ON CASCADE OR SET NULL

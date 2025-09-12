@@ -1,5 +1,6 @@
 erDiagram
     USER ||--o{ ORDER : "passe"
+    USER ||--o{ USER_TYPE : "est de type"
     ORDER ||--o{ ORDER_ITEM : "contient"
     PRODUCT ||--o{ ORDER_ITEM : "est commandé"
     PRODUCT ||--o{ PRODUCT_LOCATION : "peut pousser"
@@ -14,6 +15,15 @@ erDiagram
         string password
         enum status
         enum role
+        timestamp created_at
+        timestamp updated_at
+    }
+
+      USER_TYPE {
+        int id PK
+        string code 
+        string label
+        decimal tva_rate
         timestamp created_at
         timestamp updated_at
     }
