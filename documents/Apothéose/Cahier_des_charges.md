@@ -193,7 +193,7 @@ Le modèle relationnel nous permet également de respecter la structure métier 
 
 ---
 
-## 7 ARBORESCENCE DE L'APPLICATION (LE CHEMIN DE L'UTILISATEUR, CORRESPONDRA AUX ROUTES FRONT)
+## 7 ARBORESCENCE FRONT (LE CHEMIN DE L'UTILISATEUR, CORRESPONDRA AUX ROUTES FRONT)
 
 - /
   - /produits
@@ -215,6 +215,70 @@ Le modèle relationnel nous permet également de respecter la structure métier 
 
 ---
 
+## 8 ARBORESCENCE API (ENDPOINTS)
+
+<!-- La liste des routes prévues (les routes front sont couvertes par l'arborescence en toute logique, restent les endpoints de votre API) -->
+
+**Auth**
+
+- POST /api/auth/register → inscription d’un utilisateur
+- POST /api/auth/login → connexion email MDP (JWT)
+- POST /api/auth/logout → déconnexion
+- GET /api/auth/me → récupérer l’utilisateur si JWT stocké dans LocalSorage / CookieSécurisé
+
+**Users**
+
+- GET /api/users → liste des utilisateurs (admin uniquement)
+- GET /api/users/:id → détail d’un utilisateur
+- PUT /api/users/:id → modifier un utilisateur
+- DELETE /api/users/:id → supprimer un utilisateur
+
+**User_Types**
+
+- GET /api/user-types → liste des types particulier, association… (admin uniquement)
+- GET /api/user-types/:id → détail d’un type (admin uniquement)
+- POST /api/user-types → créer un type (admin uniquement)
+- PUT /api/user-types/:id → mettre à jour (admin uniquement)
+- DELETE /api/user-types/:id → supprimer (admin uniquement)
+
+**Products**
+
+- GET /api/products → liste des produits (arbres)
+- GET /api/products/:id → détail d’un produit
+- POST /api/products → créer un produit (admin uniquement)
+- PUT /api/products/:id → modifier un produit (admin uniquement)
+- DELETE /api/products/:id → supprimer un produit (admin uniquement)
+
+**Locations**
+
+- GET /api/locations → liste des terrains (admin uniquement) ????????? ou user peut le voir ??
+- GET /api/locations/:id → détail d’un terrain
+- POST /api/locations → créer un terrain (admin uniquement)
+- PUT /api/locations/:id → modifier un terrain (admin uniquement)
+- DELETE /api/locations/:id → supprimer un terrain (admin uniquement)
+
+**Orders**
+
+- GET /api/orders → utilisateur peut consulter historique de ses commandes
+- GET /api/orders/:id → détail d’une commande
+- POST /api/orders → créer une commande
+- PUT /api/orders/:id → mettre à jour une commande ex: statut (admin uniquement)
+- DELETE /api/orders/:id → supprimer une commande (admin uniquement)
+
+**Order_Items**
+
+- GET /api/orders/:orderId/items → liste des items d’une commande (admin uniquement)
+- POST /api/orders/:orderId/items → ajouter un produit à une commande (admin uniquement)
+- PUT /api/orders/:orderId/items/:itemId → modifier quantité ou prix (admin uniquement)
+- DELETE /api/orders/:orderId/items/:itemId → supprimer un produit d’une commande (admin uniquement)
+
+**Logs**
+
+- GET /api/logs → liste des logs (admin uniquement)
+- GET /api/logs/:id → détail d’un log (admin uniquement)
+
+---
+
 ## 6 Planning prévisionnel (macro)
 
 | Sprint   | Durée     | Objectifs                                                                                                                                    |
@@ -227,10 +291,7 @@ SPRINT 0 https://github.com/O-clock-Athenes/Projects-CDA/blob/main/.github/ISSUE
 
 **_ !!!!!!!!!!!!!!!!!!! SP 0 RESTE A FAIRE !!!!!!!!!!!!!!!!!!! _**
 
-- ARBORESCENCE DE L'APPLICATION (LE CHEMIN DE L'UTILISATEUR, CORRESPONDRA AUX ROUTES FRONT)
-
 - Les navigateurs compatibles (ECOSIA FRIENDLY ? )
-- La liste des routes prévues (les routes front sont couvertes par l'arborescence en toute logique, restent les endpoints de votre API)
 
 - Wireframes
 - Maquettes
