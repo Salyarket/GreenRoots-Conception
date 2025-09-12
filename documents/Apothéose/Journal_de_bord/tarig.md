@@ -25,4 +25,6 @@
 | 12/09/25 | La liste des rôles de chacun                           |
 | 12/09/25 | choix technologiques + justification                   |
 | 12/09/25 | diagramme architecture front/back + justification      |
+| 12/09/25 | arborescence front + back                              |
+| 12/09/25 | routes                                                 |
 |          |                                                        |

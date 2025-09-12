@@ -91,11 +91,11 @@ Gestion des utilisateurs
 
 - Next.js : choisi pour sa capacité à faire du Server-Side Rendering (SSR) et du Static Site Generation (SSG), ce qui améliore le SEO (important pour être visible avec notre catalogue de produits) et les performances. C’est un standard moderne largement utilisé dans l’écosystème React.
 
-- React : framework de composants réutilisables et dynamiques, il permet de développer une interface utilisateur fluide et interactive. C’est ce que nous avons appris à l’école, ce qui garantit une bonne maîtrise.
+- React : librairie de composants réutilisables et dynamiques, il permet de développer une interface utilisateur fluide et interactive. C’est ce que nous avons appris à l’école, ce qui garantit une bonne maîtrise.
 
 - TypeScript : améliore la robustesse du code en ajoutant du typage statique, ce qui réduit les erreurs en production et facilite la maintenance.
 
-- Tailwind CSS : choisi pour gagner du temps sur le design responsive avec des classes utilitaires, tout en gardant la possibilité de personnaliser la charte graphique.
+- Tailwind CSS : choisi pour gagner du temps sur le design responsive avec des classes utilitaires, tout en gardant la possibilité de personnaliser la charte graphique. (librairie CSS type SHADCN)
 
 =============================> Justification pédagogique : Ce sont les technologies modernes que nous avons vues à l’école, donc nous pouvons les appliquer concrètement dans ce projet tout en respectant les standards de l’industrie.
 
@@ -125,6 +125,8 @@ Gestion des utilisateurs
 
 - Passage en modèle relationnel : cohérent avec PostgreSQL et facilite l’évolution du schéma.
 
+- les logs auraient pu être stocker dans une base de données SQL ou un outil spécialisé, mais dans le cadre d'un projet scolaire nous avons choisis de ne pas nous éparpiller
+
 =============================> Justification pédagogique : PostgreSQL est le SGBD étudié en cours et utilisé dans de nombreux projets réels. MERISE fait partie des méthodes enseignées et permet de justifier un vrai processus de conception.
 
 ---
@@ -135,7 +137,7 @@ Gestion des utilisateurs
 
 - Authentification : via JWT + gestion des rôles (admin/member) pour sécuriser l’accès.
 
-- RGPD : protection des données personnelles (ex. anonymisation si un compte est supprimé, choix du consentement).
+- RGPD : protection des données personnelles (ANONYMISATION OU SUPPRESSION ????).
 
 - Accessibilité (RGAA) : garantir que l’application soit utilisable par tous (contraste, navigation clavier, aria-labels, etc.).
 
@@ -187,7 +189,7 @@ Nous avons fait ce choix car :
 
 - nos données sont fortement structurées (utilisateurs,produits,commandes,logs)
 - nous avons besoin de relations complexes (commande contient plusieurs produits)
-- nous devons garantir l'intégrité des données (commande doit toujours êtr eliée à un utilisateur)
+- nous devons garantir l'intégrité des données (commande doit toujours être liée à un utilisateur)
 
 Le modèle relationnel nous permet également de respecter la structure métier définie dans le MCD tout en restant compatible avec des évolutions futures
 
@@ -199,25 +201,28 @@ Le modèle relationnel nous permet également de respecter la structure métier 
   - /produits
     - /produits/[:slug]
   - /auth
-    - /auth/login
-    - /auth/register
+    - /auth/connexion
+    - /auth/inscription
   - /panier
-  - /commandes
-    - /commandes/[:id]
+  - /paiement
   - /profil
+    - /profil/commandes
+    - /profil/commandes/[:id]
   - /contact
-  - /about
+  - /a-propos
+  - /mentions-legales
+  - /termes-et-conditions
+  - /utilisation-des-cookies
+  - /politique-confidentialite
   - /404
   - /admin
     - /admin/produits
     - /admin/commandes
-    - /admin/users
+    - /admin/utilisateurs
 
 ---
 
 ## 8 ARBORESCENCE BACK (ENDPOINTS API)
-
-<!-- La liste des routes prévues (les routes front sont couvertes par l'arborescence en toute logique, restent les endpoints de votre API) -->
 
 **Auth**
 
@@ -231,7 +236,7 @@ Le modèle relationnel nous permet également de respecter la structure métier 
 - GET /api/users → liste des utilisateurs (admin uniquement)
 - GET /api/users/:id → détail d’un utilisateur
 - PUT /api/users/:id → modifier un utilisateur
-- DELETE /api/users/:id → supprimer un utilisateur
+- DELETE /api/users/:id → supprimer un compte utilisateur (Utilisateur si possede compte + admin )
 
 **User_Types**
 
@@ -251,8 +256,8 @@ Le modèle relationnel nous permet également de respecter la structure métier 
 
 **Locations**
 
-- GET /api/locations → liste des terrains (admin uniquement) ????????? ou user peut le voir ??
-- GET /api/locations/:id → détail d’un terrain
+- GET /api/locations → liste des terrains (admin uniquement)
+- GET /api/locations/:id → détail d’un terrain (admin uniquement)
 - POST /api/locations → créer un terrain (admin uniquement)
 - PUT /api/locations/:id → modifier un terrain (admin uniquement)
 - DELETE /api/locations/:id → supprimer un terrain (admin uniquement)
@@ -291,12 +296,11 @@ SPRINT 0 https://github.com/O-clock-Athenes/Projects-CDA/blob/main/.github/ISSUE
 
 **_ !!!!!!!!!!!!!!!!!!! SP 0 RESTE A FAIRE !!!!!!!!!!!!!!!!!!! _**
 
-- Les navigateurs compatibles (ECOSIA FRIENDLY ? )
+- Les navigateurs compatibles (ECOSIA FRIENDLY ?????????????? )
 
 - Wireframes
 - Maquettes
 - Charte graphique
-- BONUS : un diagramme de l'architecture de l'application (front, back, BDD, etc.)
 
 ---
 
@@ -343,7 +347,7 @@ SPRINT 0 https://github.com/O-clock-Athenes/Projects-CDA/blob/main/.github/ISSUE
 ## 12 LISTE DES RÔLES DE CHACUN
 
 - Oumaïma : Product Owner : tranche sur les questions de produit
-- Saliha : Scrum Master : transhe sur les questions d'organisation
+- Saliha : Scrum Master : tranche sur les questions d'organisation
 - Adrien : Lead Devs : tranche sur les question techniques
 - Tarig : Lead Devs : tranche sur les question techniques
 
