@@ -1,0 +1,16 @@
+@startuml Diagramme d'architecture GreenRoots
+node "Client (navigateur)" {
+  [Front : Next.js/React]
+}
+
+node "Serveur API" {
+  [Backend : Express.js + TypeScript]
+}
+
+database "Base de données" {
+  [PostgreSQL]
+}
+
+[Front : Next.js/React] <--> [Backend : Express.js + TypeScript] : HTTP (REST API)
+[Backend : Express.js + TypeScript] <--> [PostgreSQL] : SQL (Prisma ORM)
+@enduml
