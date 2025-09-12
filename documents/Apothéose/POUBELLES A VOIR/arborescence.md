@@ -1,7 +1,9 @@
-Brouillions 
+
+
+
 
 Pages visiteurs
-    - Page d'accueil 
+    - Page /accueil 
     - Page produits
         - Page panier
         - Page paiement

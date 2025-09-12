@@ -36,6 +36,7 @@ La plateforme doit :
 **3.1 Site vitrine**
 
 Landing page avec présentation de GreenRoots et arbres mis en avant.
+Page /about /contact /boutique
 
 **3.2 Gestion utilisateurs**
 
@@ -192,6 +193,28 @@ Le modèle relationnel nous permet également de respecter la structure métier 
 
 ---
 
+## 7 ARBORESCENCE DE L'APPLICATION (LE CHEMIN DE L'UTILISATEUR, CORRESPONDRA AUX ROUTES FRONT)
+
+- /
+  - /produits
+    - /produits/[:slug]
+  - /auth
+    - /auth/login
+    - /auth/register
+  - /panier
+  - /commandes
+    - /commandes/[:id]
+  - /profil
+  - /contact
+  - /about
+  - /404
+  - /admin
+    - /admin/produits
+    - /admin/commandes
+    - /admin/users
+
+---
+
 ## 6 Planning prévisionnel (macro)
 
 | Sprint   | Durée     | Objectifs                                                                                                                                    |
@@ -204,8 +227,9 @@ SPRINT 0 https://github.com/O-clock-Athenes/Projects-CDA/blob/main/.github/ISSUE
 
 **_ !!!!!!!!!!!!!!!!!!! SP 0 RESTE A FAIRE !!!!!!!!!!!!!!!!!!! _**
 
+- ARBORESCENCE DE L'APPLICATION (LE CHEMIN DE L'UTILISATEUR, CORRESPONDRA AUX ROUTES FRONT)
+
 - Les navigateurs compatibles (ECOSIA FRIENDLY ? )
-- L'arborescence de l'application (le chemin de l'utilisateur, correspondra aux routes front)
 - La liste des routes prévues (les routes front sont couvertes par l'arborescence en toute logique, restent les endpoints de votre API)
 
 - Wireframes
