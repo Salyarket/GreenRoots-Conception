@@ -1,13 +1,13 @@
-PRODUIT: nom scientifique, nom, prix, description, image url, empreinte carbon, disponibilité, stock
-EST LOCALISÉ, 0N LOCALISATION, 01 PRODUIT
-LOCALISATION: localisation ref, nom, coordonnées gps
-:
-:
-:
-
 CONTIENT, 0N PRODUIT, 1N COMMANDE: quantité, prix unitaire
 COMMANDE: commande ref, date, statut, total
 POSSÈDE, 11 COMMANDE, 0N UTILISATEUR
 UTILISATEUR: email, prénom, nom, mot de passe, statut, rôle
 GÉNÈRE, 0N UTILISATEUR, 01 LOG
 LOG: log ref, date, niveau, message, context
+
+PRODUIT: nom scientifique, nom, prix, description, image url, empreinte carbon, disponibilité, stock
+EST LOCALISÉ, 0N LOCALISATION, 01 PRODUIT
+LOCALISATION: localisation ref, nom, coordonnées gps
+EST DE TYPE, 01 UTILISATEUR, 0N TYPE UTILISATEUR
+TYPE UTILISATEUR: type ref, code, label, taux tva
+:
