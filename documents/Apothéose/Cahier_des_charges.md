@@ -84,7 +84,7 @@ Gestion des utilisateurs
 
 ---
 
-## 5 Contraintes techniques + Choix technologiques
+## 5 Contraintes techniques + Choix technologiques **\*\*\***JUSTIFIER LA PERTINENCE ET LE CHOIX\***\*\*\*\*\*\*\***
 
 **5.1 Frontend**
 -Next.js (SSR pour SEO et performance).
@@ -111,13 +111,38 @@ Hébergement cloud (Vercel pour le front, Railway/Render/Docker pour l’API et 
 
 ## 6 Planning prévisionnel (macro) \***\*\*\*\***A REVOIRRRRRRRRRR \***\*\*\*\*\*\***
 
-| Sprint   | Durée     | Objectifs                                                                 |
-| -------- | --------- | ------------------------------------------------------------------------- |
-| Sprint 0 | 1 semaine | Mise en place du repo, environnement, base Next.js + Express + PostgreSQL |
-| Sprint 1 | 1 semaine | Authentification (inscription / login), création du modèle BDD            |
-| Sprint 2 | 1 semaine | Catalogue produits (CRUD côté admin, affichage côté client)               |
-| Sprint 3 | 1 semaine | Panier + commande (fictive), suivi commandes                              |
-| Sprint 4 | 1 semaine | Tests, déploiement MVP, documentation (UML + cahier des charges)          |
+| Sprint   | Durée     | Objectifs                                                                                                  |
+| -------- | --------- | ---------------------------------------------------------------------------------------------------------- |
+| Sprint 0 | 1 semaine | Mise en place du repo, environnement, base Next.js + Express + PostgreSQL                                  |
+| Sprint 1 | 1 semaine | Authentification (inscription / login), création du modèle BDD                                             |
+| Sprint 2 | 1 semaine | Catalogue produits (CRUD côté admin, affichage côté client) , Panier + commande (fictive), suivi commandes |
+| Sprint 3 | 1 semaine | Tests, déploiement MVP, documentation (UML + cahier des charges)                                           |
+
+---
+
+---
+
+---
+
+SPRINT 0 https://github.com/O-clock-Athenes/Projects-CDA/blob/main/.github/ISSUE_TEMPLATE/sp0-suivi-conception.md
+
+## SP 0 A FAIRE
+
+- Le choix et la justification de l'architecture du projet (front, back, BDD)
+- Les navigateurs compatibles (ECOSIA FRIENDLY ? )
+- L'arborescence de l'application (le chemin de l'utilisateur, correspondra aux routes front)
+- La liste des routes prévues (les routes front sont couvertes par l'arborescence en toute logique, restent les endpoints de votre API)
+- La liste des rôles de chacun
+- Wireframes
+- Maquettes
+- Charte graphique
+- BONUS : un diagramme de l'architecture de l'application (front, back, BDD, etc.)
+
+---
+
+---
+
+---
 
 ---
 
