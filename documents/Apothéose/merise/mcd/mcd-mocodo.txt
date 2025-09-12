@@ -1,13 +1,13 @@
-PRODUCT: name, price, description, image url, available, stock
-COME FROM, 0N LOCATION, 01 PRODUCT
-LOCATION: location ref, name, gps point
+PRODUIT: nom scientifique, nom, prix, description, image url, empreinte carbon, disponibilité, stock
+EST LOCALISÉ, 0N LOCALISATION, 01 PRODUIT
+LOCALISATION: localisation ref, nom, coordonnées gps
 :
 :
 :
 
-CONTAIN, 0N PRODUCT, 1N ORDER
-ORDER: order ref, date, status, total
-HAVE, 11 ORDER, 0N USER
-USER: email, first name, last name, password, status, role
-GENERATE, 0N USER, 01 LOG
-LOG: log ref, timstamp, level, message, context
+CONTIENT, 0N PRODUIT, 1N COMMANDE: quantité, prix unitaire
+COMMANDE: commande ref, date, statut, total
+POSSÈDE, 11 COMMANDE, 0N UTILISATEUR
+UTILISATEUR: email, prénom, nom, mot de passe, statut, rôle
+GÉNÈRE, 0N UTILISATEUR, 01 LOG
+LOG: log ref, date, niveau, message, context
