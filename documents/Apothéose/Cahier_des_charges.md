@@ -4,7 +4,7 @@
 
 **1.1 Contexte**
 
-GreenRoots est une plateforme e-commerce permettant de financer la plantation symbolique d’arbres.
+GreenRoots est une plateforme e-commerce permettant de financer la plantation de plants d’arbres.
 L’acheteur ne reçoit pas physiquement l’arbre, mais il contribue à un projet écologique de reforestation.
 
 La plateforme doit :
@@ -84,9 +84,7 @@ Gestion des utilisateurs
 
 ---
 
-## 5 CONTRAINTES TECHNIQUES + CHOIX TECHNOLOGIQUES
-
-- SP 0 : Le choix et la justification de l'architecture du projet (front, back, BDD)
+## 5 JUSTIFICATION CHOIX TECHNOLOGIQUES
 
 **5.1 Frontend**
 
@@ -99,6 +97,8 @@ Gestion des utilisateurs
 - Tailwind CSS : choisi pour gagner du temps sur le design responsive avec des classes utilitaires, tout en gardant la possibilité de personnaliser la charte graphique.
 
 =============================> Justification pédagogique : Ce sont les technologies modernes que nous avons vues à l’école, donc nous pouvons les appliquer concrètement dans ce projet tout en respectant les standards de l’industrie.
+
+---
 
 **5.2 Backend**
 
@@ -114,6 +114,8 @@ Gestion des utilisateurs
 
 =============================> Justification pédagogique : Nous avons appris Express et Prisma en cours, ce qui garantit que nous savons les utiliser. C’est aussi un choix cohérent avec la stack full JS/TS.
 
+---
+
 **5.3 Base de données**
 
 - PostgreSQL : SGBD relationnel robuste, open source, adapté aux projets qui demandent de la cohérence et de l’intégrité des données (contraintes, clés étrangères).
@@ -123,6 +125,8 @@ Gestion des utilisateurs
 - Passage en modèle relationnel : cohérent avec PostgreSQL et facilite l’évolution du schéma.
 
 =============================> Justification pédagogique : PostgreSQL est le SGBD étudié en cours et utilisé dans de nombreux projets réels. MERISE fait partie des méthodes enseignées et permet de justifier un vrai processus de conception.
+
+---
 
 **5.4 Autres contraintes**
 
@@ -138,32 +142,68 @@ Gestion des utilisateurs
 
   - Vercel pour le frontend → intégré nativement avec Next.js.
 
-  - Docker pour backend + BDD → simplicité de déploiement, scalabilité, gratuit ou peu coûteux pour un projet pédagogique.
+  - Docker pour backend + BDD → simplicité de déploiement, scalabilité, gratuit.
 
 =============================> Justification pédagogique : Ces contraintes sont inspirées à la fois des cours et des standards professionnels. Même si le projet reste scolaire, cela nous entraîne à respecter des normes réelles de développement web.
 
 ---
 
-## 6 Planning prévisionnel (macro) \***\*\*\*\***A REVOIRRRRRRRRRR \***\*\*\*\*\*\***
+## 6 JUSTIFICATION ARCHITECTURE PROJET (cf Diagramme architecture)
 
-| Sprint   | Durée     | Objectifs                                                                                                  |
-| -------- | --------- | ---------------------------------------------------------------------------------------------------------- |
-| Sprint 0 | 1 semaine | Mise en place du repo, environnement, base Next.js + Express + PostgreSQL                                  |
-| Sprint 1 | 1 semaine | Authentification (inscription / login), création du modèle BDD                                             |
-| Sprint 2 | 1 semaine | Catalogue produits (CRUD côté admin, affichage côté client) , Panier + commande (fictive), suivi commandes |
-| Sprint 3 | 1 semaine | Tests, déploiement MVP, documentation (UML + cahier des charges)                                           |
+**1 Modèle Frontend : MVVM**
+
+    - Model = données reçues de l’API (Prisma/PostgreSQL).
+    - ViewModel = hooks/états/contexts qui préparent ces données.
+    - View = composants React/Tailwind.
+
+L’interface utilisateur, développée avec React/Next.js, s’appuie sur une approche inspirée du MVVM.
+Le Model correspond aux données reçues depuis l’API.
+La View correspond aux composants React, qui se contentent d’afficher ces données.
+Le ViewModel est assuré par la gestion d’état (hooks, context, stores), qui prépare et formate les données avant de les transmettre aux composants.
+
+Nous avons fait ce choix car il est particulièrement adapté à React, car il facilite la réutilisation des composants, améliore la clarté de la logique d’affichage et permet une gestion efficace de l’état de l’application.
 
 ---
 
+**1 Modèle Backend : MVC**
+
+    - Model = Prisma + PostgreSQL.
+    - View = JSON envoyé en réponse à l’API.
+    - Controller = routes Express.
+
+L'API sous Express.js suit une logique de type MVC.
+Le Model est représenté par la base de données relationnelle PostgreSQL, manipulée via Prisma ORM.
+La View est ici remplacée par les réponses JSON envoyées au frontend.
+Le Controller correspond aux routes et middlewares Express, responsables de recevoir les requêtes HTTP, d’appeler la logique métier et de renvoyer une réponse.
+
+Nous avons fait ce choix car il nous permet une séparation claire des responsabilités, une meilleure testabilité du code et une évolution facilitée de l’API.
+
 ---
+
+**1 Modèle BDD : Relationnel (SQL/PostgreSQL)**
+
+Nous avons fait ce choix car :
+
+- nos données sont fortement structurées (utilisateurs,produits,commandes,logs)
+- nous avons besoin de relations complexes (commande contient plusieurs produits)
+- nous devons garantir l'intégrité des données (commande doit toujours êtr eliée à un utilisateur)
+
+Le modèle relationnel nous permet également de respecter la structure métier définie dans le MCD tout en restant compatible avec des évolutions futures
+
+---
+
+## 6 Planning prévisionnel (macro)
+
+| Sprint   | Durée     | Objectifs                                                                                                                                    |
+| -------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Sprint 0 | 1 semaine | Conception (user-stories + recueil de données + dictionnaires de données + Merise + UML + ERD + wireframes + maquettes + chartre graphique ) |
 
 ---
 
 SPRINT 0 https://github.com/O-clock-Athenes/Projects-CDA/blob/main/.github/ISSUE_TEMPLATE/sp0-suivi-conception.md
 
-## SP 0 A FAIRE
+**_ !!!!!!!!!!!!!!!!!!! SP 0 RESTE A FAIRE !!!!!!!!!!!!!!!!!!! _**
 
-- Le choix et la justification de l'architecture du projet (front, back, BDD)
 - Les navigateurs compatibles (ECOSIA FRIENDLY ? )
 - L'arborescence de l'application (le chemin de l'utilisateur, correspondra aux routes front)
 - La liste des routes prévues (les routes front sont couvertes par l'arborescence en toute logique, restent les endpoints de votre API)
@@ -222,7 +262,7 @@ SPRINT 0 https://github.com/O-clock-Athenes/Projects-CDA/blob/main/.github/ISSUE
 - Adrien : Lead Devs : tranche sur les question techniques
 - Tarig : Lead Devs : tranche sur les question techniques
 
-## 10 SECURITE A LIRE SOUVENT
+## SECURITE A LIRE SOUVENT
 
 - faire controle tableau images car pas de max images en BDD (controler en front avant le create / update de l'admin) et en backend via le controlleur avant envoie BDD
 - revoir RGBD suppression de données Database et voir si compte utilisateur supprimé si commande supprimé ou set nul ? commande orpheline VOIR CREATE_TABLE.SQL DELETE ON CASCADE OR SET NULL
