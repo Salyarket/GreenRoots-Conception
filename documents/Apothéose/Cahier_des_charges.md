@@ -215,7 +215,7 @@ Le modèle relationnel nous permet également de respecter la structure métier 
 
 ---
 
-## 8 ARBORESCENCE API (ENDPOINTS)
+## 8 ARBORESCENCE BACK (ENDPOINTS API)
 
 <!-- La liste des routes prévues (les routes front sont couvertes par l'arborescence en toute logique, restent les endpoints de votre API) -->
 
@@ -279,7 +279,7 @@ Le modèle relationnel nous permet également de respecter la structure métier 
 
 ---
 
-## 6 Planning prévisionnel (macro)
+## 9 PLANNING PRÉVISIONNEL (MACRO)
 
 | Sprint   | Durée     | Objectifs                                                                                                                                    |
 | -------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -306,7 +306,7 @@ SPRINT 0 https://github.com/O-clock-Athenes/Projects-CDA/blob/main/.github/ISSUE
 
 ---
 
-## 7 Livrables
+## 10 LIVRABLES
 
 - Application MVP fonctionnelle déployée.
 - Application avec système de TEST unitaire/fonctionnel + LOG
@@ -322,7 +322,7 @@ SPRINT 0 https://github.com/O-clock-Athenes/Projects-CDA/blob/main/.github/ISSUE
 
 ---
 
-## 8 Gestion des risques
+## 11 GESTION DES RISQUES
 
 **8.1 Risques techniques**
 | ....Risque.... | ....Impact.... | ....Probabilité.... | ....Mesures préventives / correctives.... |
@@ -340,14 +340,14 @@ SPRINT 0 https://github.com/O-clock-Athenes/Projects-CDA/blob/main/.github/ISSUE
 - Départ ou indisponibilité d’un membre clé
 - mort subite du nouveau née
 
-## 9 LISTE DES RÔLES DE CHACUN
+## 12 LISTE DES RÔLES DE CHACUN
 
 - Oumaïma : Product Owner : tranche sur les questions de produit
 - Saliha : Scrum Master : transhe sur les questions d'organisation
 - Adrien : Lead Devs : tranche sur les question techniques
 - Tarig : Lead Devs : tranche sur les question techniques
 
-## SECURITE A LIRE SOUVENT
+## 13 SECURITE A LIRE SOUVENT
 
 - faire controle tableau images car pas de max images en BDD (controler en front avant le create / update de l'admin) et en backend via le controlleur avant envoie BDD
 - revoir RGBD suppression de données Database et voir si compte utilisateur supprimé si commande supprimé ou set nul ? commande orpheline VOIR CREATE_TABLE.SQL DELETE ON CASCADE OR SET NULL
