@@ -148,7 +148,7 @@ Gestion des utilisateurs
 
 ---
 
-## 6 JUSTIFICATION ARCHITECTURE PROJET (cf Diagramme architecture)
+## 6 JUSTIFICATION ARCHITECTURE PROJET (cf UML : Diagramme architecture)
 
 **1 Modèle Frontend : MVVM**
 
