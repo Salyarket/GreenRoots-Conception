@@ -1,0 +1,74 @@
+erDiagram
+    USER ||--o{ ORDER : "passe"
+    ORDER ||--o{ ORDER_ITEM : "contient"
+    PRODUCT ||--o{ ORDER_ITEM : "est commandé"
+    PRODUCT ||--o{ PRODUCT_LOCATION : "peut pousser"
+    LOCATION ||--o{ PRODUCT_LOCATION : "accueille"
+    USER ||--o{ LOG : "génère"
+    
+    USER {
+        int id PK
+        string firstname
+        string lastname
+        string email
+        string password
+        enum status
+        enum role
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    ORDER {
+        int id PK
+        timestamp date
+        enum status
+        decimal total
+        int user_id FK
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    ORDER_ITEM {
+        int id PK
+        int order_id FK
+        int product_id FK
+        int quantity
+        decimal unit_price
+    }
+
+    PRODUCT {
+        int id PK
+        string name
+        string scientific_name
+        decimal price
+        string description
+        text[] image_url
+        boolean available
+        int stock
+        int carbon
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    PRODUCT_LOCATION {
+        int id PK
+        int product_id FK
+        int location_id FK
+    }
+
+    LOCATION {
+        int id PK
+        string name
+        point gps_point
+        timestamp created_at
+        timestamp updated_at
+    }
+
+    LOG {
+        int id PK
+        timestamp created_at
+        enum level
+        string message
+        jsonb context
+        int user_id FK
+    }
