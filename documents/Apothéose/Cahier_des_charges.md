@@ -8,17 +8,17 @@ GreenRoots est une plateforme e-commerce permettant de financer la plantation de
 L’acheteur ne reçoit pas physiquement l’arbre, mais il contribue à un projet écologique de reforestation.
 
 La plateforme doit :
--servir de vitrine (valeurs, missions, arbres proposés),
--proposer un catalogue de produits (arbres à planter),
--offrir un tunnel d’achat simple,
--mettre à disposition un espace membre pour le suivi des commandes,
--permettre à l’administrateur de gérer le catalogue + utilisateurs et (BONUS : les commandes).
+- servir de vitrine (valeurs, missions, arbres proposés),
+- proposer un catalogue de produits (arbres à planter),
+- offrir un tunnel d’achat simple,
+- mettre à disposition un espace membre pour le suivi des commandes,
+- permettre à l’administrateur de gérer le catalogue + utilisateurs et (BONUS : les commandes).
 
 **1.2 Objectifs**
--Sensibiliser aux enjeux climatiques.
--Rendre l’achat de plantations accessible et rapide.
--Assurer un suivi minimal des commandes (MVP).
--Mettre en place une architecture évolutive (ajout futur de suivi interactif, partenaires, etc.).
+- Sensibiliser aux enjeux climatiques.
+- Rendre l’achat de plantations accessible et rapide.
+- Assurer un suivi minimal des commandes (MVP).
+- Mettre en place une architecture évolutive (ajout futur de suivi interactif, partenaires, etc.).
 
 ---
 
@@ -43,14 +43,14 @@ Page /about /contact /boutique
 Inscription et connexion.
 
 Rôles :
--Visiteur : accès catalogue et ajout panier,
--Membre : passage de commande, suivi commandes.
--Admin : gestion des produits/utilisateurs et (BONUS HORS MVP : et des commandes).
+- Visiteur : accès catalogue et ajout panier,
+- Membre : passage de commande, suivi commandes.
+- Admin : gestion des produits/utilisateurs et (BONUS HORS MVP : et des commandes).
 
 Statut pour les membres :
--Particulier
--Entreprise
--Association
+- Particulier
+- Entreprise
+- Association
 
 **3.3 Catalogue et produits**
 Consulter la liste des arbres disponibles et pouvoir filtrer.
@@ -331,7 +331,7 @@ SPRINT 0 https://github.com/O-clock-Athenes/Projects-CDA/blob/main/.github/ISSUE
 **8.1 Risques techniques**
 | ....Risque.... | ....Impact.... | ....Probabilité.... | ....Mesures préventives / correctives.... |
 
-- Failles de sécurité (injection SQL, XSS, fuites données personnelles) | ÉLEVÉ | MOYEN | Utilisation d’ORM, validation des entrées NTUI, chiffrement des mots de passe (bcrypt), JWT sécurisé, controle input BACK + BDD + FRONT |
+- Failles de sécurité (injection SQL, XSS, fuite des données personnelles) | ÉLEVÉ | MOYEN | Utilisation d’ORM, validation des entrées NTUI, chiffrement des mots de passe (bcrypt), JWT sécurisé, controle input BACK + BDD + FRONT |
 - Difficultés d’intégration entre front et back
 - Choix technologique inadapté (ex. Next.js/Express/Prisma mal maîtrisés)
 
@@ -346,12 +346,12 @@ SPRINT 0 https://github.com/O-clock-Athenes/Projects-CDA/blob/main/.github/ISSUE
 
 ## 12 LISTE DES RÔLES DE CHACUN
 
-- Oumaïma : Product Owner : tranche sur les questions de produit
-- Saliha : Scrum Master : tranche sur les questions d'organisation
-- Adrien : Lead Devs : tranche sur les question techniques
-- Tarig : Lead Devs : tranche sur les question techniques
+- Oumaïma : Product Owner : tranche sur les questions de produit ;
+- Saliha : Scrum Master : tranche sur les questions d'organisation ;
+- Adrien : Lead Devs : tranche sur les question techniques ;
+- Tarig : Lead Devs : tranche sur les question techniques.
 
 ## 13 SECURITE A LIRE SOUVENT
 
-- faire controle tableau images car pas de max images en BDD (controler en front avant le create / update de l'admin) et en backend via le controlleur avant envoie BDD
+- faire contrôle tableau images car pas de max images en BDD (controler en front avant le create / update de l'admin) et en backend via le controlleur avant envoie BDD
 - revoir RGBD suppression de données Database et voir si compte utilisateur supprimé si commande supprimé ou set nul ? commande orpheline VOIR CREATE_TABLE.SQL DELETE ON CASCADE OR SET NULL
