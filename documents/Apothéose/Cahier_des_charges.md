@@ -155,31 +155,28 @@ Gestion des utilisateurs
 
 **1 Modèle Frontend : MVVM**
 
-    - Model = données reçues de l’API (Prisma/PostgreSQL).
-    - ViewModel = hooks/états/contexts qui préparent ces données.
-    - View = composants React/Tailwind.
+    - Model = données reçues de l’API .
+    - View = composants affichés React/Tailwind (UI).
+    - ViewModel = hooks/états/contexts qui préparent ces données
 
-L’interface utilisateur, développée avec React/Next.js, s’appuie sur une approche inspirée du MVVM.
-Le Model correspond aux données reçues depuis l’API.
-La View correspond aux composants React, qui se contentent d’afficher ces données.
-Le ViewModel est assuré par la gestion d’état (hooks, context, stores), qui prépare et formate les données avant de les transmettre aux composants.
 
 Nous avons fait ce choix car il est particulièrement adapté à React, car il facilite la réutilisation des composants, améliore la clarté de la logique d’affichage et permet une gestion efficace de l’état de l’application.
+
+Pourquoi pas MVC : Parce que la vue (UI) est directement liée à l’état et non pilotée par un contrôleur unique.
 
 ---
 
 **1 Modèle Backend : MVC**
 
-    - Model = Prisma + PostgreSQL.
-    - View = JSON envoyé en réponse à l’API.
-    - Controller = routes Express.
+    - Model = gérer les données (Models = DB viaPrisma + PostgreSQL)
+    - View = pas de view mais du JSON envoyé
+    - Controller = organise logique métier (controllers, routes + MDW).
 
-L'API sous Express.js suit une logique de type MVC.
-Le Model est représenté par la base de données relationnelle PostgreSQL, manipulée via Prisma ORM.
-La View est ici remplacée par les réponses JSON envoyées au frontend.
-Le Controller correspond aux routes et middlewares Express, responsables de recevoir les requêtes HTTP, d’appeler la logique métier et de renvoyer une réponse.
+Nous avons fait ce choix car il nous permet :
 
-Nous avons fait ce choix car il nous permet une séparation claire des responsabilités, une meilleure testabilité du code et une évolution facilitée de l’API.
+- une séparation claire des responsabilités
+- une meilleure testabilité du code
+- une évolution facilitée de l’API.
 
 ---
 
