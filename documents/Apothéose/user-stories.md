@@ -1,6 +1,6 @@
 # Récits utilisateurs (User stories)
 
-## Roles :
+## Rôles :
 
 Hiérarchie des droits :
 
@@ -19,7 +19,7 @@ Hiérarchie des droits :
 | visiteur    | pouvoir filtrer un produit selon des critères sur la page boutique | rechercher un arbre précis via critères    |
 | visiteur    | accéder au détail d'un produit en particulier                      | avoir plus d'informations sur un arbre     |
 | visiteur    | ajouter un produit au panier                                       | préparer un achat futur                    |
-| visiteur    | **_ acheter un produit directement (redirection login) _**         | acheter un produit plus rapidement         |
+| visiteur    | **acheter un produit directement (redirection login)**         | acheter un produit plus rapidement         |
 | visiteur    | voir mon panier                                                    | consulter son contenu et le modifier       |
 
 ---
@@ -34,8 +34,8 @@ Hiérarchie des droits :
 | membre         | modifier mes informations personnelles                   | corriger mes informations personnelles   |
 | membre         | supprimer mon compte                                     | effacer mes informations personnelles    |
 | membre         | me déconnecter                                           | fermer ma session                        |
-| HORS MVP +++++ | **_voir la geocalisation de ma plantation_**             | voir l'endroit de ma plantation          |
-| HORS MVP +++++ | **_voir la photo de la plantation_** (email auto 6 mois) | avoir un visuel de la plantation         |
+| HORS MVP +++++ | **voir la géocalisation de ma plantation**               | voir l'endroit de ma plantation          |
+| HORS MVP +++++ | **voir la photo de la plantation** (email auto 6 mois)   | avoir un visuel de la plantation         |
 
 ---
 
@@ -51,6 +51,6 @@ Hiérarchie des droits :
 | admin          | rechercher une commande via n°cmde        | retrouver une commande via filtre                              |
 | admin          | modifier une commande                     | corriger une commande, changer status                          |
 | admin          | supprimer une commande                    | supprimer une commande                                         |
-| HORS MVP +++++ | **_accéder à un tableau de bord simple_** | visualiser des statistiques (arbres plantés, nombre d’achats…) |
+| HORS MVP +++++ | **accéder à un tableau de bord simple** | visualiser des statistiques (arbres plantés, nombre d’achats…) |
 
 ---
