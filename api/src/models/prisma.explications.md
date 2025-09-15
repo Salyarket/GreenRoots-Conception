@@ -40,7 +40,7 @@ Ceci va nous permettre d'avoir des données à afficher
 
 ---
 
-_npm run db:migrate:reset_ ("db:migrate:reset": "prisma migrate reset --force --schema=./src/models/schema.prisma")
+_npm run db:reset_ ("db:migrate:reset": "prisma migrate reset --force --schema=./src/models/schema.prisma")
 
 Ceci va nous permettre de reset la BDD au niveau de son seedings
 
