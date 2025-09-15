@@ -133,6 +133,8 @@ Gestion des utilisateurs
 
 **5.4 Autres contraintes**
 
+- Compatibilité navigateur : Chrome + Safari en priorité car 80-90% des parts de marché (pas oublier Microsoft Edge / Firefox)
+
 - Sécurité : respect des bonnes pratiques OWASP TOP 10 (prévention contre injections SQL, XSS, CSRF, etc.).
 
 - Authentification : via JWT + gestion des rôles (admin/member) pour sécuriser l’accès.
@@ -285,7 +287,7 @@ Le modèle relationnel nous permet également de respecter la structure métier 
 
 | Sprint   | Durée     | Objectifs                                                                                                                                    |
 | -------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| Sprint 0 | 1 semaine | Conception (user-stories + recueil de données + dictionnaires de données + Merise + UML + ERD + wireframes + maquettes + chartre graphique ) |
+| Sprint 0 | 1 semaine | Conception (Cahier des charges + user-stories + recueil de données + dictionnaires de données + Merise + UML + ERD + wireframes + maquettes + chartre graphique ) |
 
 ---
 
@@ -293,7 +295,6 @@ SPRINT 0 https://github.com/O-clock-Athenes/Projects-CDA/blob/main/.github/ISSUE
 
 **_ !!!!!!!!!!!!!!!!!!! SP 0 RESTE A FAIRE !!!!!!!!!!!!!!!!!!! _**
 
-- Les navigateurs compatibles (ECOSIA FRIENDLY ?????????????? )
 
 - Wireframes
 - Maquettes
