@@ -10,7 +10,7 @@
 > - Organisation du travail
 
 ### Oumaïma et moi 
-> Brouillion de l'arborescence avec Oumaïma
+> Brouillon de l'arborescence avec Oumaïma
 
 </details>
 

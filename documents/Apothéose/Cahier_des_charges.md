@@ -8,17 +8,17 @@ GreenRoots est une plateforme e-commerce permettant de financer la plantation de
 L’acheteur ne reçoit pas physiquement l’arbre, mais il contribue à un projet écologique de reforestation.
 
 La plateforme doit :
--servir de vitrine (valeurs, missions, arbres proposés),
--proposer un catalogue de produits (arbres à planter),
--offrir un tunnel d’achat simple,
--mettre à disposition un espace membre pour le suivi des commandes,
--permettre à l’administrateur de gérer le catalogue + utilisateurs et (BONUS : les commandes).
+- servir de vitrine (valeurs, missions, arbres proposés),
+- proposer un catalogue de produits (arbres à planter),
+- offrir un tunnel d’achat simple,
+- mettre à disposition un espace membre pour le suivi des commandes,
+- permettre à l’administrateur de gérer le catalogue + utilisateurs et (BONUS : les commandes).
 
 **1.2 Objectifs**
--Sensibiliser aux enjeux climatiques.
--Rendre l’achat de plantations accessible et rapide.
--Assurer un suivi minimal des commandes (MVP).
--Mettre en place une architecture évolutive (ajout futur de suivi interactif, partenaires, etc.).
+- Sensibiliser aux enjeux climatiques.
+- Rendre l’achat de plantations accessible et rapide.
+- Assurer un suivi minimal des commandes (MVP).
+- Mettre en place une architecture évolutive (ajout futur de suivi interactif, partenaires, etc.).
 
 ---
 
@@ -43,14 +43,14 @@ Page /about /contact /boutique
 Inscription et connexion.
 
 Rôles :
--Visiteur : accès catalogue et ajout panier,
--Membre : passage de commande, suivi commandes.
--Admin : gestion des produits/utilisateurs et (BONUS HORS MVP : et des commandes).
+- Visiteur : accès catalogue et ajout panier,
+- Membre : passage de commande, suivi commandes.
+- Admin : gestion des produits/utilisateurs et (BONUS HORS MVP : et des commandes).
 
 Statut pour les membres :
--Particulier
--Entreprise
--Association
+- Particulier
+- Entreprise
+- Association
 
 **3.3 Catalogue et produits**
 Consulter la liste des arbres disponibles et pouvoir filtrer.
@@ -133,6 +133,8 @@ Gestion des utilisateurs
 
 **5.4 Autres contraintes**
 
+- Compatibilité navigateur : Chrome + Safari en priorité car 80-90% des parts de marché (pas oublier Microsoft Edge / Firefox)
+
 - Sécurité : respect des bonnes pratiques OWASP TOP 10 (prévention contre injections SQL, XSS, CSRF, etc.).
 
 - Authentification : via JWT + gestion des rôles (admin/member) pour sécuriser l’accès.
@@ -155,31 +157,28 @@ Gestion des utilisateurs
 
 **1 Modèle Frontend : MVVM**
 
-    - Model = données reçues de l’API (Prisma/PostgreSQL).
-    - ViewModel = hooks/états/contexts qui préparent ces données.
-    - View = composants React/Tailwind.
+    - Model = données reçues de l’API .
+    - View = composants affichés React/Tailwind (UI).
+    - ViewModel = hooks/états/contexts qui préparent ces données
 
-L’interface utilisateur, développée avec React/Next.js, s’appuie sur une approche inspirée du MVVM.
-Le Model correspond aux données reçues depuis l’API.
-La View correspond aux composants React, qui se contentent d’afficher ces données.
-Le ViewModel est assuré par la gestion d’état (hooks, context, stores), qui prépare et formate les données avant de les transmettre aux composants.
 
 Nous avons fait ce choix car il est particulièrement adapté à React, car il facilite la réutilisation des composants, améliore la clarté de la logique d’affichage et permet une gestion efficace de l’état de l’application.
+
+Pourquoi pas MVC : Parce que la vue (UI) est directement liée à l’état et non pilotée par un contrôleur unique.
 
 ---
 
 **1 Modèle Backend : MVC**
 
-    - Model = Prisma + PostgreSQL.
-    - View = JSON envoyé en réponse à l’API.
-    - Controller = routes Express.
+    - Model = gérer les données (Models = DB viaPrisma + PostgreSQL)
+    - View = pas de view mais du JSON envoyé
+    - Controller = organise logique métier (controllers, routes + MDW).
 
-L'API sous Express.js suit une logique de type MVC.
-Le Model est représenté par la base de données relationnelle PostgreSQL, manipulée via Prisma ORM.
-La View est ici remplacée par les réponses JSON envoyées au frontend.
-Le Controller correspond aux routes et middlewares Express, responsables de recevoir les requêtes HTTP, d’appeler la logique métier et de renvoyer une réponse.
+Nous avons fait ce choix car il nous permet :
 
-Nous avons fait ce choix car il nous permet une séparation claire des responsabilités, une meilleure testabilité du code et une évolution facilitée de l’API.
+- une séparation claire des responsabilités
+- une meilleure testabilité du code
+- une évolution facilitée de l’API.
 
 ---
 
@@ -288,7 +287,7 @@ Le modèle relationnel nous permet également de respecter la structure métier 
 
 | Sprint   | Durée     | Objectifs                                                                                                                                    |
 | -------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| Sprint 0 | 1 semaine | Conception (user-stories + recueil de données + dictionnaires de données + Merise + UML + ERD + wireframes + maquettes + chartre graphique ) |
+| Sprint 0 | 1 semaine | Conception (Cahier des charges + user-stories + recueil de données + dictionnaires de données + Merise + UML + ERD + wireframes + maquettes + chartre graphique ) |
 
 ---
 
@@ -296,7 +295,6 @@ SPRINT 0 https://github.com/O-clock-Athenes/Projects-CDA/blob/main/.github/ISSUE
 
 **_ !!!!!!!!!!!!!!!!!!! SP 0 RESTE A FAIRE !!!!!!!!!!!!!!!!!!! _**
 
-- Les navigateurs compatibles (ECOSIA FRIENDLY ?????????????? )
 
 - Wireframes
 - Maquettes
@@ -331,7 +329,7 @@ SPRINT 0 https://github.com/O-clock-Athenes/Projects-CDA/blob/main/.github/ISSUE
 **8.1 Risques techniques**
 | ....Risque.... | ....Impact.... | ....Probabilité.... | ....Mesures préventives / correctives.... |
 
-- Failles de sécurité (injection SQL, XSS, fuites données personnelles) | ÉLEVÉ | MOYEN | Utilisation d’ORM, validation des entrées NTUI, chiffrement des mots de passe (bcrypt), JWT sécurisé, controle input BACK + BDD + FRONT |
+- Failles de sécurité (injection SQL, XSS, fuite des données personnelles) | ÉLEVÉ | MOYEN | Utilisation d’ORM, validation des entrées NTUI, chiffrement des mots de passe (bcrypt), JWT sécurisé, controle input BACK + BDD + FRONT |
 - Difficultés d’intégration entre front et back
 - Choix technologique inadapté (ex. Next.js/Express/Prisma mal maîtrisés)
 
@@ -342,16 +340,15 @@ SPRINT 0 https://github.com/O-clock-Athenes/Projects-CDA/blob/main/.github/ISSUE
 - Mauvaise répartition des rôles dans l’équipe
 - Difficultés de communication interne
 - Départ ou indisponibilité d’un membre clé
-- mort subite du nouveau née
 
 ## 12 LISTE DES RÔLES DE CHACUN
 
-- Oumaïma : Product Owner : tranche sur les questions de produit
-- Saliha : Scrum Master : tranche sur les questions d'organisation
-- Adrien : Lead Devs : tranche sur les question techniques
-- Tarig : Lead Devs : tranche sur les question techniques
+- Oumaïma : Product Owner : tranche sur les questions de produit ;
+- Saliha : Scrum Master : tranche sur les questions d'organisation ;
+- Adrien : Lead Devs : tranche sur les question techniques ;
+- Tarig : Lead Devs : tranche sur les question techniques.
 
 ## 13 SECURITE A LIRE SOUVENT
 
-- faire controle tableau images car pas de max images en BDD (controler en front avant le create / update de l'admin) et en backend via le controlleur avant envoie BDD
+- faire contrôle tableau images car pas de max images en BDD (controler en front avant le create / update de l'admin) et en backend via le controlleur avant envoie BDD
 - revoir RGBD suppression de données Database et voir si compte utilisateur supprimé si commande supprimé ou set nul ? commande orpheline VOIR CREATE_TABLE.SQL DELETE ON CASCADE OR SET NULL
