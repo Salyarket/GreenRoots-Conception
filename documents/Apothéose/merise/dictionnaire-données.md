@@ -1,18 +1,21 @@
 # Dictionnaire de données
 
+_*MODIFICATIONS*_
+
 ## User
 
-| Champ          | Type                   | Unique | Not null | Référence     | Par défaut | Exemple de valeur                         | Explication                               |
-| -------------- | ---------------------- | ------ | -------- | ------------- | ---------- | ----------------------------------------- | ----------------------------------------- |
-| `id`           | GENERATED              | ✅     | ✅       | -             | -          | 1                                         | Identifiant unique de l’utilisateur       |
-| `firstname`    | VARCHAR(255)           | ❌     | ✅       | -             | -          | "Alice"                                   | Prénom de l’utilisateur                   |
-| `lastname`     | VARCHAR(255)           | ❌     | ✅       | -             | -          | "Durand"                                  | Nom de famille de l’utilisateur           |
-| `email`        | VARCHAR(320)           | ✅     | ✅       | -             | -          | "[alice@mail.com](mailto:alice@mail.com)" | Adresse email de l’utilisateur            |
-| `password`     | VARCHAR(255)           | ❌     | ✅       | -             | -          | "\$2a\$10\$..."                           | Mot de passe hashé (bcrypt)               |
-| `role`         | ENUM('member','admin') | ❌     | ✅       | -             | 'member'   | "admin"                                   | Rôle de l’utilisateur                     |
-| `user_type_id` | INT                    | ❌     | ✅       | user_type(id) | 1          | 2                                         | Référence vers le type (particulier/asso) |
-| `created_at`   | TIMESTAMPTZ            | ❌     | ✅       | -             | now()      | 2025-09-11 14:32:00                       | Date de création                          |
-| `updated_at`   | TIMESTAMPTZ            | ❌     | ✅       | -             | now()      | 2025-09-11 14:35:00                       | Dernière mise à jour                      |
+| Champ           | Type                   | Unique | Not null | Référence     | Par défaut | Exemple de valeur                         | Explication                               |
+| --------------- | ---------------------- | ------ | -------- | ------------- | ---------- | ----------------------------------------- | ----------------------------------------- |
+| `id`            | GENERATED              | ✅     | ✅       | -             | -          | 1                                         | Identifiant unique de l’utilisateur       |
+| `firstname`     | VARCHAR(255)           | ❌     | ✅       | -             | -          | "Alice"                                   | Prénom de l’utilisateur                   |
+| `lastname`      | VARCHAR(255)           | ❌     | ✅       | -             | -          | "Durand"                                  | Nom de famille de l’utilisateur           |
+| `email`         | VARCHAR(320)           | ✅     | ✅       | -             | -          | "[alice@mail.com](mailto:alice@mail.com)" | Adresse email de l’utilisateur            |
+| `password`      | VARCHAR(255)           | ❌     | ✅       | -             | -          | "\$2a\$10\$..."                           | Mot de passe hashé (bcrypt)               |
+| `role`          | ENUM('member','admin') | ❌     | ✅       | -             | 'member'   | "admin"                                   | Rôle de l’utilisateur                     |
+| `user_type_id`  | INT                    | ❌     | ✅       | user_type(id) | 1          | 2                                         | Référence vers le type (particulier/asso) |
+| `created_at`    | TIMESTAMPTZ            | ❌     | ✅       | -             | now()      | 2025-09-11 14:32:00                       | Date de création                          |
+| `updated_at`    | TIMESTAMPTZ            | ❌     | ✅       | -             | now()      | 2025-09-11 14:35:00                       | Dernière mise à jour                      |
+| _*entity_name*_ | VARCHAR(255)           | ❌     | ❌       | -             | -          | GreenPeace                                |                                           |
 
 ## User_type
 
@@ -27,30 +30,34 @@
 
 ## Product
 
-| Champ             | Type          | Unique | Not null | Référence | Par défaut | Exemple de valeur                                           | Explication                                   |
-| ----------------- | ------------- | ------ | -------- | --------- | ---------- | ----------------------------------------------------------- | --------------------------------------------- |
-| `id`              | GENERATED     | ✅     | ✅       | -         | -          | 101                                                         | Identifiant unique du produit (arbre)         |
-| `name`            | VARCHAR(255)  | ❌     | ✅       | -         | -          | "Chêne vert"                                                | Nom de l’arbre                                |
-| `slug`            | VARCHAR(255)  | ✅     | ✅       | -         | -          | "chene-vert"                                                | Identifiant lisible dans l’URL (SEO friendly) |
-| `price`           | DECIMAL(10,2) | ❌     | ✅       | -         | 0.0        | 15.50                                                       | Prix unitaire                                 |
-| `description`     | VARCHAR(2500) | ❌     | ✅       | -         | -          | "Arbre robuste méditerranéen"                               | Description du produit                        |
-| `image_url`       | TEXT[]        | ❌     | ✅       | -         | -          | ["https://cdn/trees/oak.png", "https://cdn/trees/oak2.png"] | Liste d’URLs d’images (max 10 via CHECK)      |
-| `available`       | BOOLEAN       | ❌     | ✅       | -         | true       | true                                                        | Disponibilité (actif / désactivé)             |
-| `stock`           | INT           | ❌     | ✅       | -         | 0          | 120                                                         | Quantité disponible                           |
-| `scientific_name` | VARCHAR(255)  | ❌     | ❌       | -         | NULL       | "Quercus ilex"                                              | Nom scientifique de l’arbre (latin)           |
-| `carbon`          | DECIMAL(10,2) | ❌     | ❌       | -         | NULL       | 50                                                          | Absorption estimée de CO₂ (kg/an par arbre)   |
-| `created_at`      | TIMESTAMPTZ   | ❌     | ✅       | -         | now()      | 2025-09-11 14:32:00                                         | Date de création                              |
-| `updated_at`      | TIMESTAMPTZ   | ❌     | ✅       | -         | now()      | 2025-09-11 14:35:00                                         | Dernière mise à jour                          |
+| Champ             | Type           | Unique | Not null | Référence | Par défaut | Exemple de valeur             | Explication                                   |
+| ----------------- | -------------- | ------ | -------- | --------- | ---------- | ----------------------------- | --------------------------------------------- |
+| `id`              | GENERATED      | ✅     | ✅       | -         | -          | 101                           | Identifiant unique du produit (arbre)         |
+| `name`            | VARCHAR(255)   | ❌     | ✅       | -         | -          | "Chêne vert"                  | Nom de l’arbre                                |
+| `slug`            | VARCHAR(255)   | ✅     | ✅       | -         | -          | "chene-vert"                  | Identifiant lisible dans l’URL (SEO friendly) |
+| `price`           | DECIMAL(10,2)  | ❌     | ✅       | -         | 0.0        | 15.50                         | Prix unitaire                                 |
+| `description`     | VARCHAR(2500)  | ❌     | ✅       | -         | -          | "Arbre robuste méditerranéen" | Description du produit                        |
+| _*image_urls*_    | VARCHAR(100)[] | ❌     | ✅       | -         | -          | ["https://cdn/trees/oak.png"] | tableau de string avec max 100 char each      |
+| `available`       | BOOLEAN        | ❌     | ✅       | -         | true       | true                          | Disponibilité (actif / désactivé)             |
+| `stock`           | INT            | ❌     | ✅       | -         | 0          | 120                           | Quantité disponible                           |
+| `scientific_name` | VARCHAR(255)   | ❌     | ❌       | -         | NULL       | "Quercus ilex"                | Nom scientifique de l’arbre (latin)           |
+| `carbon`          | DECIMAL(10,2)  | ❌     | ❌       | -         | NULL       | 50                            | Absorption estimée de CO₂ (kg/an par arbre)   |
+| `created_at`      | TIMESTAMPTZ    | ❌     | ✅       | -         | now()      | 2025-09-11 14:32:00           | Date de création                              |
+| `updated_at`      | TIMESTAMPTZ    | ❌     | ✅       | -         | now()      | 2025-09-11 14:35:00           | Dernière mise à jour                          |
 
 ## Location
 
-| Champ        | Type         | Unique | Not null | Référence | Par défaut | Exemple de valeur        | Explication                   |
-| ------------ | ------------ | ------ | -------- | --------- | ---------- | ------------------------ | ----------------------------- |
-| `id`         | GENERATED    | ✅     | ✅       | -         | -          | 5                        | Identifiant unique du terrain |
-| `name`       | VARCHAR(255) | ❌     | ✅       | -         | -          | "Forêt de Fontainebleau" | Nom du terrain de plantation  |
-| `gps_point`  | POINT        | ❌     | ✅       | -         | -          | "48.4042, 2.7023"        | Coordonnées GPS               |
-| `created_at` | TIMESTAMPTZ  | ❌     | ✅       | -         | now()      | 2025-09-11 14:32:00      | Date de création              |
-| `updated_at` | TIMESTAMPTZ  | ❌     | ✅       | -         | now()      | 2025-09-11 14:35:00      | Dernière mise à jour          |
+| Champ       | Type                  | Unique | Not null | Référence | Par défaut | Exemple de valeur        | Explication                   |
+| ----------- | --------------------- | ------ | -------- | --------- | ---------- | ------------------------ | ----------------------------- | --- |
+| `id`        | GENERATED             | ✅     | ✅       | -         | -          | 5                        | Identifiant unique du terrain |
+| `name`      | VARCHAR(255)          | ❌     | ✅       | -         | -          | "Forêt de Fontainebleau" | Nom du terrain de plantation  |
+| <!--        | `gps_point DELETEE ?` | POINT  | ❌       | ✅        | -          | -                        | "48.4042, 2.7023"             | --> |
+| `latitude`  | POINT                 | ❌     | ✅       | -         | -          | "48.4042, 2.7023"        |
+| `longitude` | POINT                 | ❌     | ✅       | -         | -          | "48.4042, 2.7023"        |
+
+Coordonnées GPS |
+| `created_at` | TIMESTAMPTZ | ❌ | ✅ | - | now() | 2025-09-11 14:32:00 | Date de création |
+| `updated_at` | TIMESTAMPTZ | ❌ | ✅ | - | now() | 2025-09-11 14:35:00 | Dernière mise à jour |
 
 ## Order
 
