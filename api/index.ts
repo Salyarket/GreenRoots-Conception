@@ -5,5 +5,5 @@ import { app } from "./src/app.js";
 const port = config.server.port;
 
 app.listen(port, () => {
-  console.log(`🚀 Server running at http://localhost:${port}`);
+  console.log(`🚀 Server running at http://localhost:${port}`)
 });

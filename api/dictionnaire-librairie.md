@@ -15,9 +15,9 @@ _*"devDependencies":*_
 - "typescript": transpile code TS en JS
 - "typescript-eslint": règles de base d’ESLint pour Typescript
 
-  <!-- plus tard :
+  <!-- POUR PLUS TARD :
   dotenv → pour gérer les variables d’environnement
   winston → pour les logs
   zod ou joi → pour valider les entrées API (plus tard).
-  jsonwebtoken
-  bcrypt -->
+  jsonwebtoken → token
+  bcrypt → hashage mdp + salage -->
