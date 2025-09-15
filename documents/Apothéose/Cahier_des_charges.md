@@ -340,7 +340,6 @@ SPRINT 0 https://github.com/O-clock-Athenes/Projects-CDA/blob/main/.github/ISSUE
 - Mauvaise répartition des rôles dans l’équipe
 - Difficultés de communication interne
 - Départ ou indisponibilité d’un membre clé
-- mort subite du nouveau née
 
 ## 12 LISTE DES RÔLES DE CHACUN
 

@@ -1,0 +1,32 @@
+{
+  "name": "api_greenroots",
+  "version": "1.0.0",
+  "description": "Api REST GreenRoots",
+  "main": "index.js",
+  "scripts": {
+    "======= Pour la prod =======": "========================",
+    "start": "node --env-file=.env dist/index.js",
+    "build": "tsc",
+    "docker:start": "npm run db:migrate:deploy && node dist/index.js",
+    "======= Pour le dev ========": "========================",
+    "dev": "tsx --watch --env-file=.env index.ts"
+  },
+  "keywords": [],
+  "author": "SOTA : Saliha, Oumaïma, Tarig, Adrien",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@prisma/client": "^6.16.1",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.35.0",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.4.0",
+    "prisma": "^6.16.1",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.43.0"
+  }
+}
