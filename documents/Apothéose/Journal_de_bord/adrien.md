@@ -2,7 +2,7 @@
 
 
 <details>
-  <summary> <strong> ✅ Mardi 10 septembre </strong> </summary>
+  <summary> <strong> ✅ Mardi 9 septembre </strong> </summary>
 
 ### 🔥 Tous les membres de l'équipe 
 > - Choix des éléments du MVC + Quelques pistes d'évolutions
@@ -15,7 +15,7 @@
 </details>
 
 <details>
-  <summary> <strong> ✅ Mercredi 11 Septembre </strong> </summary>
+  <summary> <strong> ✅ Mercredi 10 Septembre </strong> </summary>
 
 ### Saliha & moi
 > 🚀 **Création du Wireframe :** en équipe avec Saliha sur Figma 🛠️ :
@@ -58,7 +58,7 @@
 </details>
 
 <details>
-  <summary> <strong> Jeudi 12 Septembre  </strong> </summary>
+  <summary> <strong> Jeudi 11 Septembre  </strong> </summary>
 
 >**🔥 A faire : Terminer Wireframe 🔥 :** 
 >    - Accueil     | [ ] Desktop        | ✅ Mobile
@@ -69,10 +69,21 @@
 > - [ ] les landing page, une connecté en tant que membre et l'autre en tant qu'admin 
 > - [ ] Un composant card
 
+
+|   Pages       |   Desktop     |   Mobile    |
+|---            |:-:            |:-:          |
+| Accueil       |      ✅       |       ✅    | 
+| Login         |      ✅       |       ✅    | 
+| SignUp        |      ✅       |       ✅    | 
+| Produit       |      ✅       |       ✅    | 
+| Catalogue     |      ⏳       |       ❌    |    
+
+✅ Fini  / ⏳ en cours / ❌ pas encore commencé
+
 </details>
 
 <details>
-  <summary> <strong> Vendredi 13 Septembre </strong> </summary>
+  <summary> <strong> Vendredi 12 Septembre </strong> </summary>
 </details>
 
 
