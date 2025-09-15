@@ -104,8 +104,8 @@ model Order {
   updated_at  DateTime   @default(now()) 
 
   // Relations
-  user_id Int? @map("user_id")
-  user   User?     @relation(fields: [user_id], references: [id], onDelete: SetNull)
+  user_id Int
+  user   User    @relation(fields: [user_id], references: [id], onDelete: SetNull)
   items  OrderItem[]
 
   @@map("order")
@@ -162,7 +162,7 @@ model Log {
   created_at   DateTime  @default(now()) 
 
   // Relations
-  user_id Int? @map("user_id")
+  user_id Int? 
   user   User? @relation(fields: [user_id], references: [id], onDelete: SetNull)
 
   @@map("log")
