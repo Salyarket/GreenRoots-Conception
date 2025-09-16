@@ -59,4 +59,4 @@
 **Equipe avec Oumaïma, Tarig & Adrien**
 
 - Présentation du sprint 0
-- 
+- Répartition des tâches
