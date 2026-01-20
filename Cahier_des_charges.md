@@ -1,6 +1,21 @@
 ### CAHIER DES CHARGES – PROJET GREENROOTS
 
-## 1 Présentation du projet
+## GLOSSAIRE TECHNIQUE
+
+| Terme | Définition |
+| --- | --- |
+| MVP	| Minimum Viable Product : version minimale fonctionnelle du projet |
+| SSR	| Server Side Rendering : rendu côté serveur pour améliorer le SEO |
+| ORM	| Object Relational Mapping : outil facilitant l’accès à la base de données |
+| JWT	| JSON Web Token : jeton d’authentification sécurisé |
+| CRUD	| Create, Read, Update, Delete |
+| API REST	| Interface de communication basée sur requêtes HTTP |
+| OWASP	| Organisation publiant les standards de sécurité web |
+| RGPD	| Règlement Général sur la Protection des Données |
+| MERISE	| Méthode de modélisation de base de données |
+| UML	| Langage de modélisation logicielle |
+
+## 1. Présentation du projet
 
 **1.1 Contexte**
 
@@ -12,7 +27,7 @@ La plateforme doit :
 - proposer un catalogue de produits (arbres à planter),
 - offrir un tunnel d’achat simple,
 - mettre à disposition un espace membre pour le suivi des commandes,
-- permettre à l’administrateur de gérer le catalogue + utilisateurs et (BONUS : les commandes).
+- permettre à l’administrateur de gérer le catalogue + utilisateurs et (Bonus : les commandes).
 
 **1.2 Objectifs**
 - Sensibiliser aux enjeux climatiques.
@@ -22,30 +37,51 @@ La plateforme doit :
 
 ---
 
-## 2 Cible du projet
+## 2. Cible du projet
 
--Particuliers : achat ponctuel ou cadeau (ex. Léa, 28 ans).
--Entreprises : achat en volume, besoin de justificatifs (ex. Karim, Responsable RSE).
--Associations : relais de communication sur leurs actions (ex. Guillaume reponsable association).
--Administrateur GreenRoots : gestion des stocks, commandes et communication (ex. Éloise).
+- Particuliers : achat ponctuel ou cadeau (ex. : Bob, 28 ans).
+- Entreprises : achat en volume, besoin de justificatifs (ex. : Lina, Responsable RSE).
+- Associations : relais de communication sur leurs actions (ex. : Guillaume, Responsable d'association).
+- Administrateur GreenRoots : gestion des stocks, commandes et communication (ex. : Éloise).
+
+**2.1 Hypothèses et contraintes**
+
+_Hypothèses de départ_
+- La plantation réelle des arbres est gérée par des partenaires externes non modélisés dans le MVP.
+- Le paiement en ligne est simulé ou effectué via Stripe en mode test dans le cadre pédagogique.
+- L’utilisateur ne reçoit pas physiquement l’arbre : l’achat correspond à un financement symbolique.
+- Les localisations affichées sur la carte Leaflet peuvent être fictives ou représentatives dans la version MVP.
+- Le projet est destiné à un usage web moderne (desktop et mobile), sans application native.
+
+_Contraintes techniques_
+- Stack imposée par le cadre pédagogique : React / Next.js / Express / PostgreSQL.
+- Hébergement du frontend sur Vercel.
+- Backend et base de données conteneurisés via Docker.
+- Authentification JWT obligatoire pour toutes les routes protégées.
+- Respect des bonnes pratiques OWASP Top 10.
+
+_Contraintes pédagogiques_
+- Utilisation de MERISE pour la modélisation des données.
+- Rédaction d’un cahier des charges complet.
+- Mise en place d’une API documentée via Swagger.
+- Travail en équipe avec rôles Scrum définis.
 
 ---
 
-## 3 Périmètre fonctionnel (MVP)
+## 3. Périmètre fonctionnel (MVP)
 
 **3.1 Site vitrine**
 
-Landing page avec présentation de GreenRoots et arbres mis en avant.
-Page /about /contact /boutique
+Landing Page avec présentation de GreenRoots et arbres mis en avant.
+Accueil / À propos / Catalogue / Connexion
 
 **3.2 Gestion utilisateurs**
 
-Inscription et connexion.
-
+_Inscription et connexion_
 Rôles :
 - Visiteur : accès catalogue et ajout panier,
 - Membre : passage de commande, suivi commandes.
-- Admin : gestion des produits/utilisateurs et (BONUS HORS MVP : et des commandes).
+- Admin : gestion des produits/utilisateurs et (Bonus hors MVP : et des commandes).
 
 Statut pour les membres :
 - Particulier
@@ -53,24 +89,57 @@ Statut pour les membres :
 - Association
 
 **3.3 Catalogue et produits**
-Consulter la liste des arbres disponibles et pouvoir filtrer.
-Voir la fiche détaillée d’un arbre (nom, description, prix, image, stock...).
+- Consulter la liste des arbres disponibles et pouvoir filtrer.
+- Voir la fiche détaillée d’un arbre (nom, description, prix, image, stock...).
 
 **3.4 Panier et commandes**
-Ajouter un arbre au panier.
-Passer une commande via un tunnel d’achat fictif.
-Consulter ses commandes passées.
+- Ajouter un arbre au panier.
+- Passer une commande via un tunnel d’achat fictif.
+- Consulter ses commandes passées.
 
 **3.5 Back-office admin**
-gestion des produits : CRUD sur les arbres (ajout, modification, suppression).
-Gestion des utilisateurs
-(BONUS HORS MVP : gestion des commandes)
+- Gestion des produits : CRUD sur les arbres (ajout, modification, suppression).
+- Gestion des utilisateurs
+(Bonus hors MVP : gestion des commandes)
+
+**3.6 Règles de gestion métier**
+
+_Utilisateurs_
+- Un utilisateur peut être : Particulier, Entreprise ou Association.
+- Un utilisateur possède un seul compte.
+- Un utilisateur peut passer plusieurs commandes.
+- Un administrateur peut gérer les produits et les utilisateurs.
+
+_Produits (arbres)_
+- Chaque arbre possède un nom, une description, un prix et un stock.
+- Un arbre peut être associé à une localisation de plantation.
+- Un arbre ne peut pas être commandé si son stock est insuffisant.
+- Un administrateur peut créer, modifier ou supprimer un arbre.
+
+_Panier_
+- Un panier est lié à une session utilisateur.
+- Le panier ne peut contenir qu’une quantité inférieure ou égale au stock disponible.
+- Le panier est sauvegardé temporairement dans le navigateur (LocalStorage).
+
+_Commandes_
+- Une commande est obligatoirement liée à un utilisateur.
+- Une commande contient un ou plusieurs produits.
+- Lorsqu’une commande est validée, le stock des produits est décrémenté.
+- Une commande possède un statut :
+  - pending
+  - paid
+  - cancelled
+
+_Sécurité_
+- Les mots de passe sont stockés hâchés.
+- Les routes admin sont accessibles uniquement au rôle administrateur.
+- Les utilisateurs ne peuvent consulter que leurs propres commandes.
 
 ---
 
-## 4 Évolutions possibles
+## 4. Évolutions possibles
 
-- ajouter des critères sur les arbres : CARBONE CO2 , croissance, besoin d'eau, types fruitiers
+- Ajouter des critères sur les arbres : carbone CO2 , croissance, besoin d'eau, types fruitiers
 - Pouvoir suivre l’évolution des arbres que l’on a achetés : lieu, croissance, photos potentielles, etc.
 - Système de suivi interactif : carte interactive pour visualiser les lieux exacts de plantation des arbres achetés.
 - Back-office pour l'administration, la gestion des profils utilisateurs, le suivi des arbres, etc.
@@ -81,11 +150,11 @@ Gestion des utilisateurs
 - Système de notifications : avertir les utilisateurs d’événements significatifs (plantation réussie, anniversaire d’un arbre, campagnes spéciales, etc.).
 - Intégration d'une API pour le paiement sécurisé, comme [Stripe](https://stripe.com/fr).
 - Support multilingue : au moins anglais et français.
-- M'avertir en cas de retour en stock d'un produit.
+- Avertir en cas de retour en stock d'un produit.
 
 ---
 
-## 5 JUSTIFICATION CHOIX TECHNOLOGIQUES
+## 5. Justification de choix technologiques
 
 **5.1 Frontend**
 
@@ -97,7 +166,7 @@ Gestion des utilisateurs
 
 - Tailwind CSS : choisi pour gagner du temps sur le design responsive avec des classes utilitaires, tout en gardant la possibilité de personnaliser la charte graphique. (librairie CSS type SHADCN)
 
-=============================> Justification pédagogique : Ce sont les technologies modernes que nous avons vues à l’école, donc nous pouvons les appliquer concrètement dans ce projet tout en respectant les standards de l’industrie.
+=> Justification pédagogique : Ce sont les technologies modernes que nous avons vues à l’école, donc nous pouvons les appliquer concrètement dans ce projet tout en respectant les standards de l’industrie.
 
 ---
 
@@ -107,13 +176,13 @@ Gestion des utilisateurs
 
 - TypeScript : même justification que côté front : fiabilité, réduction des bugs, meilleure lisibilité du code.
 
-- Prisma ORM : simplifie les interactions avec la base de données PostgreSQL grâce à un mapping objet-relationnel clair et un générateur de types automatiques (sécurité supplémentaire au niveau du code et bonne synergie avec TypeScript ).
+- Prisma ORM : simplifie les interactions avec la base de données PostgreSQL grâce à un mapping objet-relationnel clair et un générateur de types automatiques (sécurité supplémentaire au niveau du code et bonne synergie avec TypeScript).
 
 - Swagger : documentation automatique de l’API pour faciliter les tests et la communication entre développeurs.
 
 - Winston : gestion centralisée des logs (erreurs, événements importants, monitoring) → bon pour le suivi et le débogage en production.
 
-=============================> Justification pédagogique : Nous avons appris Express et Prisma en cours, ce qui garantit que nous savons les utiliser. C’est aussi un choix cohérent avec la stack full JS/TS.
+=> Justification pédagogique : Nous avons appris Express et Prisma en cours, ce qui garantit que nous savons les utiliser. C’est aussi un choix cohérent avec la stack full JS/TS.
 
 ---
 
@@ -125,37 +194,39 @@ Gestion des utilisateurs
 
 - Passage en modèle relationnel : cohérent avec PostgreSQL et facilite l’évolution du schéma.
 
-- les logs auraient pu être stocker dans une base de données SQL ou un outil spécialisé, mais dans le cadre d'un projet scolaire nous avons choisis de ne pas nous éparpiller
+- les logs auraient pu être stockés dans une base de données SQL ou un outil spécialisé, mais dans le cadre d'un projet scolaire nous avons choisi de ne pas nous disperser.
 
-=============================> Justification pédagogique : PostgreSQL est le SGBD étudié en cours et utilisé dans de nombreux projets réels. MERISE fait partie des méthodes enseignées et permet de justifier un vrai processus de conception.
+=> Justification pédagogique : PostgreSQL est le SGBD étudié en cours et utilisé dans de nombreux projets réels. MERISE fait partie des méthodes enseignées et permet de justifier un vrai processus de conception.
 
 ---
 
 **5.4 Autres contraintes**
 
-- Compatibilité navigateur : Chrome + Safari en priorité car 80-90% des parts de marché (pas oublier Microsoft Edge / Firefox)
+- Compatibilité navigateur : Chrome et Safari en priorité, tout en assurant la compatibilité avec Edge et Firefox.
 
 - Sécurité : respect des bonnes pratiques OWASP TOP 10 (prévention contre injections SQL, XSS, CSRF, etc.).
 
-- Authentification : via JWT + gestion des rôles (admin/member) pour sécuriser l’accès.
+- Authentification : mise en place d’une authentification via JWT avec gestion des rôles (membre / administrateur) pour sécuriser l’accès aux ressources.
 
-- RGPD : protection des données personnelles (ANONYMISATION OU SUPPRESSION ????).
+- RGPD : possibilité pour l’utilisateur de demander la suppression de son compte et de ses données personnelles. Les données liées aux commandes peuvent être anonymisées afin de conserver des statistiques sans conserver d’informations personnelles.
 
 - Accessibilité (RGAA) : garantir que l’application soit utilisable par tous (contraste, navigation clavier, aria-labels, etc.).
 
 - Hébergement Cloud :
 
-  - Vercel pour le frontend → intégré nativement avec Next.js.
+  - Front déployé sur Vercel, plateforme optimisée pour Next.js.
 
-  - Docker pour backend + BDD → simplicité de déploiement, scalabilité, gratuit.
+  - Back et base de données PostgreSQL déployés sur Railway, solution Platform as a Service (PaaS) permettant un déploiement simplifié et une gestion automatique des environnements.
+  
+  (- Docker pour backend + BDD → simplicité de déploiement, scalabilité, gratuit.)
 
-=============================> Justification pédagogique : Ces contraintes sont inspirées à la fois des cours et des standards professionnels. Même si le projet reste scolaire, cela nous entraîne à respecter des normes réelles de développement web.
+=> Justification pédagogique : Ce choix d’hébergement permet de se concentrer sur le développement applicatif sans complexifier inutilement la gestion d’infrastructure, tout en utilisant des outils modernes proches des pratiques professionnelles.
 
 ---
 
-## 6 JUSTIFICATION ARCHITECTURE PROJET (cf UML : Diagramme architecture)
+## 6. Justification d'architecture de projet (cf UML : Diagramme architecture)
 
-**1 Modèle Frontend : MVVM**
+**6.1 Modèle Frontend : MVVM**
 
     - Model = données reçues de l’API .
     - View = composants affichés React/Tailwind (UI).
@@ -164,13 +235,13 @@ Gestion des utilisateurs
 
 Nous avons fait ce choix car il est particulièrement adapté à React, car il facilite la réutilisation des composants, améliore la clarté de la logique d’affichage et permet une gestion efficace de l’état de l’application.
 
-Pourquoi pas MVC : Parce que la vue (UI) est directement liée à l’état et non pilotée par un contrôleur unique.
+Pourquoi pas MVC ? : Parce que la vue (UI) est directement liée à l’état et non pilotée par un contrôleur unique.
 
 ---
 
-**1 Modèle Backend : MVC**
+**6.2 Modèle Backend : MVC**
 
-    - Model = gérer les données (Models = DB viaPrisma + PostgreSQL)
+    - Model = gérer les données (Models = DB via Prisma + PostgreSQL)
     - View = pas de view mais du JSON envoyé
     - Controller = organise logique métier (controllers, routes + MDW).
 
@@ -182,11 +253,11 @@ Nous avons fait ce choix car il nous permet :
 
 ---
 
-**1 Modèle BDD : Relationnel (SQL/PostgreSQL)**
+**6.3 Modèle BDD : Relationnel (SQL/PostgreSQL)**
 
 Nous avons fait ce choix car :
 
-- nos données sont fortement structurées (utilisateurs,produits,commandes,logs)
+- nos données sont fortement structurées (utilisateurs, produits, commandes,logs)
 - nous avons besoin de relations complexes (commande contient plusieurs produits)
 - nous devons garantir l'intégrité des données (commande doit toujours être liée à un utilisateur)
 
@@ -194,7 +265,7 @@ Le modèle relationnel nous permet également de respecter la structure métier 
 
 ---
 
-## 7 ARBORESCENCE FRONT (LE CHEMIN DE L'UTILISATEUR, CORRESPONDRA AUX ROUTES FRONT)
+## 7. Arborescence Front-End
 
 - /
   - /produits
@@ -221,21 +292,21 @@ Le modèle relationnel nous permet également de respecter la structure métier 
 
 ---
 
-## 8 ARBORESCENCE BACK (ENDPOINTS API)
+## 8 Arborescence Back-End
 
 **Auth**
 
 - POST /api/auth/register → inscription d’un utilisateur
 - POST /api/auth/login → connexion email MDP (JWT)
 - POST /api/auth/logout → déconnexion
-- GET /api/auth/me → récupérer l’utilisateur si JWT stocké dans LocalSorage / CookieSécurisé
+- GET /api/auth/me → récupérer l’utilisateur si JWT stocké dans LocalStorage / Cookie Sécurisé
 
 **Users**
 
 - GET /api/users → liste des utilisateurs (admin uniquement)
 - GET /api/users/:id → détail d’un utilisateur
 - PUT /api/users/:id → modifier un utilisateur
-- DELETE /api/users/:id → supprimer un compte utilisateur (Utilisateur si possede compte + admin )
+- DELETE /api/users/:id → supprimer un compte utilisateur (Utilisateur si possède compte + admin )
 
 **User_Types**
 
@@ -283,35 +354,18 @@ Le modèle relationnel nous permet également de respecter la structure métier 
 
 ---
 
-## 9 PLANNING PRÉVISIONNEL (MACRO)
+## 9. Planning prévisionnel(macro)
 
 | Sprint   | Durée     | Objectifs                                                                                                                                    |
 | -------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| Sprint 0 | 1 semaine | Conception (Cahier des charges + user-stories + recueil de données + dictionnaires de données + Merise + UML + ERD + wireframes + maquettes + chartre graphique ) |
+| Sprint 0 | 1 semaine | Conception (Cahier des charges + user-stories + recueil de données + dictionnaire de données + Merise + UML + ERD + wireframes + maquettes + charte graphique ) |
 
 ---
 
-SPRINT 0 https://github.com/O-clock-Athenes/Projects-CDA/blob/main/.github/ISSUE_TEMPLATE/sp0-suivi-conception.md
-
-**_ !!!!!!!!!!!!!!!!!!! SP 0 RESTE A FAIRE !!!!!!!!!!!!!!!!!!! _**
-
-
-- Wireframes
-- Maquettes
-- Charte graphique
-
----
-
----
-
----
-
----
-
-## 10 LIVRABLES
+## 10. Livrables
 
 - Application MVP fonctionnelle déployée.
-- Application avec système de TEST unitaire/fonctionnel + LOG
+- Application avec système de TESTS unitaires/fonctionnels + LOG
 - Cahier des charges (présent document).
 - User stories
 - Dictionnaire de données.
@@ -324,16 +378,16 @@ SPRINT 0 https://github.com/O-clock-Athenes/Projects-CDA/blob/main/.github/ISSUE
 
 ---
 
-## 11 GESTION DES RISQUES
+## 11. Gestion des risques
 
-**8.1 Risques techniques**
+**11.1 Risques techniques**
 | ....Risque.... | ....Impact.... | ....Probabilité.... | ....Mesures préventives / correctives.... |
 
-- Failles de sécurité (injection SQL, XSS, fuite des données personnelles) | ÉLEVÉ | MOYEN | Utilisation d’ORM, validation des entrées NTUI, chiffrement des mots de passe (bcrypt), JWT sécurisé, controle input BACK + BDD + FRONT |
+- Failles de sécurité (injection SQL, XSS, fuite des données personnelles) | ÉLEVÉ | MOYEN | Utilisation d’un ORM, validation des entrées NTUI, chiffrement des mots de passe (bcrypt), JWT sécurisé, controle input BACK + BDD + FRONT |
 - Difficultés d’intégration entre front et back
 - Choix technologique inadapté (ex. Next.js/Express/Prisma mal maîtrisés)
 
-**8.2 Risques organisationnels**
+**11.2 Risques organisationnels**
 | Risque | Impact | Probabilité | Mesures préventives / correctives |
 
 - Retards dans le planning
@@ -341,14 +395,15 @@ SPRINT 0 https://github.com/O-clock-Athenes/Projects-CDA/blob/main/.github/ISSUE
 - Difficultés de communication interne
 - Départ ou indisponibilité d’un membre clé
 
-## 12 LISTE DES RÔLES DE CHACUN
+## 12. Liste des rôles de chacun
 
 - Oumaïma : Product Owner : tranche sur les questions de produit ;
 - Saliha : Scrum Master : tranche sur les questions d'organisation ;
 - Adrien : Lead Devs : tranche sur les question techniques ;
 - Tarig : Lead Devs : tranche sur les question techniques.
 
-## 13 SECURITE A LIRE SOUVENT
+## 13. Points de vigilance technique
 
-- faire contrôle tableau images car pas de max images en BDD (controler en front avant le create / update de l'admin) et en backend via le controlleur avant envoie BDD
-- revoir RGBD suppression de données Database et voir si compte utilisateur supprimé si commande supprimé ou set nul ? commande orpheline VOIR CREATE_TABLE.SQL DELETE ON CASCADE OR SET NULL
+- Limitation du nombre d’images uploadées côté front et back.
+- Politique de suppression en base : ON DELETE CASCADE ou SET NULL selon les relations.
+- Vérification de la suppression conforme RGPD.
