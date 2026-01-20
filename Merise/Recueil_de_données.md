@@ -50,7 +50,7 @@ La méthode **MERISE** permet d'analyser, modéliser et concevoir un système d'
 
 ---------- BONUS ------------
 
-- facture pdf (envoi auto?????)
+- mail de confirmation de commande
 
 ## Log
 

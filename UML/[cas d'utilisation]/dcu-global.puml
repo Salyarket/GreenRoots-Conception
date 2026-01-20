@@ -6,8 +6,8 @@ actor Visiteur
 actor Membre
 actor Admin
 
-Visiteur --|> Membre
-Membre --|> Admin
+Admin --|> Membre
+Membre --|> Visiteur
 
 rectangle "GreenRoots - Cas d'utilisation" {
 
@@ -22,7 +22,7 @@ rectangle "GreenRoots - Cas d'utilisation" {
   usecase "Suivre commande" as UC14
   usecase "Voir historique commandes" as UC15
   usecase "Modifier mes infos perso" as UC17
-  usecase "Supprimer mon compte" as UC18
+  usecase "Supprimer mon compte (désactivation)" as UC18
   usecase "Me déconnecter" as UC19
 
   ' --- Visiteur ---

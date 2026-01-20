@@ -1,13 +1,15 @@
-CONTIENT, 0N PRODUIT, 1N COMMANDE: quantité, prix unitaire
-COMMANDE: commande ref, date, statut, total
-POSSÈDE, 11 COMMANDE, 0N UTILISATEUR
-UTILISATEUR: email, prénom, nom, mot de passe, statut, rôle
-GÉNÈRE, 0N UTILISATEUR, 01 LOG
-LOG: log ref, date, niveau, message, context
+CONTIENT, 0N PRODUIT, 1N COMMANDE: quantité, prix_unitaire
+COMMANDE: commande_ref, date, statut, total
+PASSE, 0N UTILISATEUR, 11 COMMANDE
+UTILISATEUR: email, prénom, nom, mot_de_passe, rôle, entity_name, deleted_at
+GENERE, 0N UTILISATEUR, 01 LOG
+LOG: log_ref, date, niveau, source, message, context
 
-PRODUIT: nom scientifique, nom, prix, description, image url, empreinte carbon, disponibilité, stock
-EST LOCALISÉ, 0N LOCALISATION, 01 PRODUIT
-LOCALISATION: localisation ref, nom, coordonnées gps
-EST DE TYPE, 01 UTILISATEUR, 0N TYPE UTILISATEUR
-TYPE UTILISATEUR: type ref, code, label, taux tva
-:
+PRODUIT: nom_scientifique, nom, prix, description, image_urls, empreinte_carbone, disponibilite, stock
+EST_LOCALISE, 0N LOCALISATION, 0N PRODUIT
+LOCALISATION: localisation_ref, nom, latitude, longitude
+EST_DE_TYPE, 11 UTILISATEUR, 0N TYPE_UTILISATEUR
+TYPE_UTILISATEUR: type_ref, code, label, taux_tva
+
+POSSEDE, 0N UTILISATEUR, 11 REFRESH_TOKEN
+REFRESH_TOKEN: token_ref, token, created_at, expired_at

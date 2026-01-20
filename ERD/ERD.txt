@@ -1,11 +1,12 @@
 erDiagram
     USER ||--o{ ORDER : "passe"
-    USER ||--o{ USER_TYPE : "est de type"
+    USER_TYPE ||--o{ USER : "typifie"
+    USER ||--o{ REFRESH_TOKEN : "possède"
     ORDER ||--o{ ORDER_ITEM : "contient"
     PRODUCT ||--o{ ORDER_ITEM : "est commandé"
     PRODUCT ||--o{ PRODUCT_LOCATION : "peut pousser"
     LOCATION ||--o{ PRODUCT_LOCATION : "accueille"
-    USER ||--o{ LOG : "génère"
+    LOG }o--|o USER : "concerne"
     
     USER {
         int id PK
@@ -13,10 +14,12 @@ erDiagram
         string lastname
         string email
         string password
-        enum status
         enum role
+        string entity_name
         timestamp created_at
         timestamp updated_at
+        timestamp deleted_at
+        int user_type_id FK
     }
 
       USER_TYPE {
@@ -30,7 +33,6 @@ erDiagram
 
     ORDER {
         int id PK
-        timestamp date
         enum status
         decimal total
         int user_id FK
@@ -50,26 +52,29 @@ erDiagram
         int id PK
         string name
         string scientific_name
+        string slug
         decimal price
         string description
-        text[] image_url
+        text[] image_urls
         boolean available
         int stock
-        int carbon
+        decimal carbon
         timestamp created_at
         timestamp updated_at
     }
 
     PRODUCT_LOCATION {
-        int id PK
-        int product_id FK
-        int location_id FK
+        int product_id PK,FK
+        int location_id PK,FK
+        timestamp created_at
+        timestamp updated_at
     }
 
     LOCATION {
         int id PK
         string name
-        point gps_point
+        double latitude
+        double longitude
         timestamp created_at
         timestamp updated_at
     }
@@ -78,7 +83,16 @@ erDiagram
         int id PK
         timestamp created_at
         enum level
+        enum source
         string message
         jsonb context
         int user_id FK
+    }
+
+    REFRESH_TOKEN {
+        int id PK
+        string token
+        int user_id FK
+        timestamp created_at
+        timestamp expired_at
     }

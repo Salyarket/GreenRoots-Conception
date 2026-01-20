@@ -14,7 +14,7 @@ API -> BDD : Vérifie disponibilité du stock pour chaque produit
 BDD --> API : Stock disponible / insuffisant
 
 alt Stock disponible
-    API -> BDD : POST /commandes Crée la commande (user_id, produits, total, status=payé)
+    API -> BDD : POST /commandes Crée la commande (user_id, produits, total, status=paid)
     BDD --> API : Commande créée avec ID
 
     API -> BDD : Met à jour le stock (décrémentation des quantités)
